@@ -271,9 +271,15 @@ footer {
   letter-spacing: 6px;
   margin: 0;
 
-  background: linear-gradient(90deg, #ffffff, #8fa3c7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(0); }
 }
 
 /* sous-titre clean */
@@ -343,19 +349,30 @@ footer {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.08),
     transparent
   );
 
-  animation: scan 6s infinite;
+  animation: scan 2.5s infinite linear;
 
-  pointer-events: none;
-
-  opacity: 0.4;
-  z-index: 0;
+  opacity: 0.8;
 }
 
 @keyframes scan {
   0% { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
+}
+
+.typing {
+  font-size: 11px;
+  opacity: 0.6;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.4);
+  width: 0;
+  animation: typing 3s steps(30) forwards;
+}
+
+@keyframes typing {
+  to { width: 100%; }
 }

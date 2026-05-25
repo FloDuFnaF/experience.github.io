@@ -1,35 +1,60 @@
-<div class="card system-log fragment-card">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>L-17 // FRAGMENT 1.2</title>
 
-  <h2>SEGMENT L-17-1.2</h2>
+<!-- ✅ CSS OBLIGATOIRE -->
+<link rel="stylesheet" href="style.css">
 
-  <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
+</head>
 
-  <p style="opacity:0.7; margin-top:10px;">
-    DÉCODE LE SIGNAL SUIVANT :
-  </p>
+<body class="fragment fragment-12">
 
-  <p id="cipherText" class="cipher-text">
-    chargement du signal...
-  </p>
+<div class="noise"></div>
 
-  <input id="input" autocomplete="off" placeholder="clé de déchiffrement">
+<div class="container">
 
-  <button onclick="validate()">VALIDER ACCÈS</button>
+  <div class="card system-log fragment-card">
 
-  <p id="error" class="error"></p>
+    <h2>SEGMENT L-17-1.2</h2>
 
-  <!-- 👇 ICI tu mets la link box -->
-  <div class="link-box">
-    <p class="link-title">POINT D’ACCÈS PARTIEL</p>
+    <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
 
-    <p class="link-url">
-      https://flodufnaf.github.io/experience.github.io/
-      <span class="glitch-url">XXXXXXXX</span>
+    <p style="opacity:0.7; margin-top:10px;">
+      DÉCODE LE SIGNAL SUIVANT :
     </p>
 
-    <p class="link-hint">
-      signature fragmentée — 8 unités manquantes
+    <p id="cipherText" class="cipher-text">
+      chargement du signal...
     </p>
+
+    <input id="input" autocomplete="off" placeholder="clé de déchiffrement">
+
+    <button onclick="validate()">VALIDER ACCÈS</button>
+
+    <p id="error" class="error"></p>
+
+    <!-- LINK BOX -->
+    <div class="link-box">
+      <p class="link-title">POINT D’ACCÈS PARTIEL</p>
+
+      <p class="link-url">
+        https://flodufnaf.github.io/experience.github.io/
+        <span class="glitch-url">XXXXXXXX</span>
+      </p>
+
+      <p class="link-hint">
+        signature fragmentée — 8 unités manquantes
+      </p>
+    </div>
+
   </div>
 
 </div>
+
+<!-- JS DU FRAGMENT -->
+<script src="fragment1-2.js"></script>
+
+</body>
+</html>

@@ -165,3 +165,23 @@ footer {
 .system-overlay {
   animation: flicker 6s infinite;
 }
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+/* IMPORTANT : empêche dépassement */
+.card input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* bouton aligné proprement */
+.card button {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

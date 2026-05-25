@@ -665,6 +665,10 @@ body {
   animation: glitch 1.5s infinite;
 }
 
+.card + .link-box {
+  margin-top: 30px;
+}
+
 .lore {
   margin-top: 25px;
 }

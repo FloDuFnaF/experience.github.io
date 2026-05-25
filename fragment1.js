@@ -1,4 +1,4 @@
-const phrase = "L17 OBSERVEUR NON AUTORISE";
+const phrase = "L17 OBSERVEUR NON AUTORISÉ";
 
 document.getElementById("captchaText").innerText = phrase;
 

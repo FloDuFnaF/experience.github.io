@@ -151,8 +151,9 @@ footer {
   left: 0;
   right: 0;
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
 
   padding: 12px 20px;
 
@@ -164,12 +165,7 @@ footer {
   pointer-events: none;
 
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  animation: flicker 6s infinite;
-
-  box-sizing: border-box;
 }
-
 /* flicker subtil */
 @keyframes flicker {
   0%, 100% { opacity: 0.3; }

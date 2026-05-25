@@ -465,3 +465,7 @@ html, body {
 .fragment-text {
   animation: flicker 4s infinite;
 }
+
+#captchaText {
+  user-select: none;
+}

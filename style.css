@@ -665,14 +665,21 @@ body {
   animation: glitch 1.5s infinite;
 }
 
-.card + .link-box {
-  margin-top: 30px;
-}
-
 .lore {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .link-box {
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+/* IMPORTANT : vrai fix */
+.card {
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }

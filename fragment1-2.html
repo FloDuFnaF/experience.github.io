@@ -1,20 +1,40 @@
-<body class="fragment">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>L-17 // FRAGMENT 1.2</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="fragment fragment-12">
+
+<div class="noise"></div>
 
 <div class="container">
 
-  <div class="card system-log">
+  <div class="card system-log fragment-card">
 
     <h2>SEGMENT L-17-1.2</h2>
 
-    <p>VALIDATION SÉMANTIQUE REQUISE</p>
+    <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
 
-    <p style="opacity:0.7;">DÉCODE LE SIGNAL SUIVANT :</p>
+    <p style="opacity:0.7; margin-top:10px;">
+      DÉCODE LE SIGNAL SUIVANT :
+    </p>
 
-    <p id="cipherText" style="font-weight:bold; letter-spacing:2px;"></p>
+    <p id="cipherText" class="cipher-text">
+      chargement du signal...
+    </p>
 
-    <input id="input" autocomplete="off">
+    <input 
+      id="input" 
+      autocomplete="off" 
+      placeholder="clé de déchiffrement"
+    >
 
-    <button onclick="validate()">VALIDER</button>
+    <button onclick="validate()">VALIDER ACCÈS</button>
 
     <p id="error" class="error"></p>
 
@@ -25,3 +45,4 @@
 <script src="fragment1-2.js"></script>
 
 </body>
+</html>

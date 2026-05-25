@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       error.innerText = "VALIDÉ";
 
       setTimeout(() => {
-        window.location.href = "home.html";
+        window.location.href = "fragment1-2.html";
       }, 800);
     } else {
       error.style.color = "#FF4C4C";

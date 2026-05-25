@@ -22,7 +22,15 @@
       ...
     </p>
 
-    <input type="text" id="captchaInput" placeholder="réponse">
+    <input 
+      type="text" 
+      id="captchaInput" 
+      placeholder="réponse"
+      autocomplete="off"
+      onpaste="return false"
+      oncopy="return false"
+      oncut="return false"
+    />
 
     <button onclick="validateCaptcha()">VALIDER</button>
 

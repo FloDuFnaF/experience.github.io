@@ -423,3 +423,22 @@ html, body {
   margin-top: 10px;
   text-align: center;
 }
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1a1f2b, #121621);
+  color: white;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(90deg, #2a3142, #1a2030);
+}

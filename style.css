@@ -266,6 +266,8 @@ footer {
   position: relative;
 
   z-index: 1;
+
+  overflow: hidden;
 }
 
 /* titre plus moderne */
@@ -276,6 +278,7 @@ footer {
 
   position: relative;
   animation: glitch 2s infinite;
+  will-change: transform;
 }
 
 @keyframes glitch {
@@ -352,13 +355,16 @@ footer {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(255,255,255,0.08),
+    rgba(255,255,255,0.05),
     transparent
   );
 
-  animation: scan 2.5s infinite linear;
+  animation: scan 3.5s linear infinite;
 
-  opacity: 0.8;
+  opacity: 0.25;
+
+  pointer-events: none;
+  z-index: 0;
 }
 
 .login-header {

@@ -664,3 +664,11 @@ body {
   letter-spacing: 3px;
   animation: glitch 1.5s infinite;
 }
+
+.lore {
+  margin-top: 25px;
+}
+
+.link-box {
+  margin-top: 40px;
+}

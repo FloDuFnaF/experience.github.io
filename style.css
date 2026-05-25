@@ -226,7 +226,8 @@ footer {
 
 .login {
   height: 100vh;
-  display: flex;
+  display: grid;
+  place-items: center;
   align-items: center;
   justify-content: center;
 
@@ -264,10 +265,15 @@ footer {
   gap: 12px;
 
   position: relative;
+  isolation: isolate;
 
   z-index: 1;
 
   overflow: hidden;
+
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
 }
 
 /* titre plus moderne */
@@ -398,13 +404,11 @@ footer {
 }
 
 .typing {
-  font-size: 11px;
-  opacity: 0.6;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid rgba(255,255,255,0.4);
-  width: 0;
-  animation: typing 3s steps(30) forwards;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto !important;
 }
 
 @keyframes typing {

@@ -185,3 +185,8 @@ footer {
   max-width: 100%;
   box-sizing: border-box;
 }
+.card input,
+.card button {
+  width: 100%;
+  box-sizing: border-box;
+}

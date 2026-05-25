@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>L-17 // ACCÈS</title>
-<link rel="stylesheet" href="style.css">
-</head>
-
-<body class="login">
-
-<div class="login-container">
-
-  <div class="login-box">
-
-    <h1>L-17</h1>
-    <p class="sub">accès au système d’archive</p>
-
-    <input type="password" id="pass" placeholder="code d’accès">
-
-    <button onclick="login()">Entrer</button>
-
-    <p id="error" class="error"></p>
-
-  </div>
-
-</div>
-
 <script>
 function login() {
+  const user = document.getElementById("user").value;
   const pass = document.getElementById("pass").value;
 
-  // mot de passe temporaire (on changera en ARG plus tard)
-  if (pass === "L17-ORIGIN") {
-    window.location.href = "archive.html";
+  if (user === "admin" && pass === "L17-ORIGIN") {
+    window.location.href = "home.html";
   } else {
     document.getElementById("error").innerText = "accès refusé";
   }

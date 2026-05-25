@@ -2,19 +2,38 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>L-17 // FRAGMENT 01</title>
+<title>L-17 // INTRUSION</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="fragment">
+<body class="home">
 
-<div class="noise"></div>
+<div class="container">
 
-<div class="fragment-container">
-  <p class="fragment-text">
-    FRAGMENT 01 // chargement incomplet
-  </p>
+  <div class="card system-log">
+    <h2>INTRUSION DÉTECTÉE</h2>
+    <p>Veuillez compléter la vérification avant neutralisation du flux.</p>
+
+    <p style="margin-top:10px; opacity:0.7;">
+      Tape exactement la phrase suivante :
+    </p>
+
+    <p id="captchaText" style="font-weight:bold; letter-spacing:1px;">
+      ...
+    </p>
+
+    <input type="text" id="captchaInput" placeholder="réponse">
+
+    <button onclick="validateCaptcha()">VALIDER</button>
+
+    <p id="timer" style="margin-top:10px; opacity:0.6;"></p>
+    <p id="error" class="error"></p>
+
+  </div>
+
 </div>
+
+<script src="fragment1.js"></script>
 
 </body>
 </html>

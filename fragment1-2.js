@@ -64,9 +64,6 @@ Toute tentative de suppression entraîne une réaction du système.
     loreDiv.innerHTML = `
       <p class="lore-text">${loreText}</p>
 
-      <p class="hidden-link">
-        https://flodufnaf.github.io/experience.github.io/
-        <span class="glitch-url">XXXXXXXX</span>
       </p>
     `;
 

@@ -2,105 +2,41 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>L-17 // ARCHIVE VISUELLE</title>
+<title>L-17 // ACCÈS</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="home">
+<body class="login">
 
-<div class="system-overlay">
-  <div class="sys-left">L-17 / node: unstable</div>
-  <div class="sys-center">archive synchronization // partial</div>
-  <div class="sys-right">v0.7.α</div>
-</div>
+<div class="login-container">
 
-<div class="hidden-note">
-  L’accès visuel ne correspond pas à la structure réelle du protocole.
-</div>
+  <div class="login-box">
 
-<div class="noise"></div>
+    <h1>L-17</h1>
+    <p class="sub">accès au système d’archive</p>
 
-<div class="container">
+    <input type="password" id="pass" placeholder="code d’accès">
 
-  <header>
-    <h1 class="glitch">L-17</h1>
-    <p class="subtitle">archive visuelle // fragments non classifiés</p>
-  </header>
+    <button onclick="login()">Entrer</button>
 
-  <section class="grid">
-
-    <!-- FRAGMENT 01 -->
-    <div class="card">
-      <h2>FRAGMENT 01</h2>
-      <p>Étude de décomposition chromatique — protocole abandonné.</p>
-
-      <input type="password" id="pass1" placeholder="mot de passe">
-      <button onclick="checkPass(1)">Accéder</button>
-      <p class="error" id="err1"></p>
-    </div>
-
-    <!-- FRAGMENT 02 -->
-    <div class="card">
-      <h2>FRAGMENT 02</h2>
-      <p>Référence : mouvement post-structurel non documenté.</p>
-
-      <input type="password" id="pass2" placeholder="mot de passe">
-      <button onclick="checkPass(2)">Accéder</button>
-      <p class="error" id="err2"></p>
-    </div>
-
-    <!-- FRAGMENT 03 -->
-    <div class="card">
-      <h2>FRAGMENT 03</h2>
-      <p>Signal intercepté — origine inconnue.</p>
-
-      <input type="password" id="pass3" placeholder="mot de passe">
-      <button onclick="checkPass(3)">Accéder</button>
-      <p class="error" id="err3"></p>
-    </div>
-
-  </section>
-
-  <!-- SYS LOG SORTI DE LA GRID -->
-  <div class="card system-log">
-    <h2>JOURNAL SYSTÈME</h2>
-    <p>[12:44:02] fragmentation détectée dans le nœud L-17-A</p>
-    <p>[12:44:11] index mémoire partiellement inaccessible</p>
-    <p>[12:44:19] avertissement : corrélation observateur en hausse</p>
+    <p id="error" class="error"></p>
 
   </div>
 
-  <footer>
-    <p>accès restreint // observation uniquement</p>
-  </footer>
+</div>
 
-  </div>
-  
-  <!-- élément caché -->
-  <span style="opacity:0; position:absolute;">
-    L17::observer::true
-  </span>
-  
-  <script>
-  function checkPass(id) {
-    const input = document.getElementById("pass" + id);
-    const error = document.getElementById("err" + id);
-  
-    let correct = "";
-  
-    if (id === 1) correct = "L17-ORIGIN";
-    if (id === 2) correct = "POST-STRUCTURE";
-    if (id === 3) correct = "SIGNAL-NULL";
-  
-    if (input.value === correct) {
-      error.style.color = "#6CFF6C";
-      error.innerText = "accès validé";
-    } else {
-      error.style.color = "#FF4C4C";
-      error.innerText = "mot de passe incorrect";
-    }
+<script>
+function login() {
+  const pass = document.getElementById("pass").value;
+
+  // mot de passe temporaire (on changera en ARG plus tard)
+  if (pass === "L17-ORIGIN") {
+    window.location.href = "archive.html";
+  } else {
+    document.getElementById("error").innerText = "accès refusé";
   }
-  </script>
-  
-  </body>
-  </html>
+}
+</script>
+
+</body>
+</html>

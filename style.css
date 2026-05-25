@@ -126,3 +126,42 @@ footer {
   opacity: 0.3;
   font-size: 12px;
 }
+.system-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  font-size: 11px;
+  opacity: 0.35;
+  letter-spacing: 1px;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.sys-left, .sys-center, .sys-right {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* petit détail caché */
+.hidden-note {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  opacity: 0.08;
+  max-width: 200px;
+  pointer-events: none;
+}
+
+/* micro “glitch respirant” */
+@keyframes flicker {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.2; }
+}
+
+.system-overlay {
+  animation: flicker 6s infinite;
+}

@@ -1,3 +1,5 @@
+const phrase = "L17 OBSERVEUR NON AUTORISE";
+
 document.getElementById("captchaText").innerText = phrase;
 
 let timeLeft = 10;

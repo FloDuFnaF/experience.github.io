@@ -1,1 +1,85 @@
+body {
+  margin: 0;
+  background: #050507;
+  color: #e6e6e6;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
 
+/* bruit visuel */
+.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* layout */
+.container {
+  padding: 60px;
+}
+
+/* titre principal glitch */
+.glitch {
+  font-size: 80px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* effet glitch simple */
+.glitch::before,
+.glitch::after {
+  content: "L-17";
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.6;
+}
+
+.glitch::before {
+  color: red;
+  transform: translateX(-2px);
+}
+
+.glitch::after {
+  color: cyan;
+  transform: translateX(2px);
+}
+
+/* sous-titre */
+.subtitle {
+  opacity: 0.6;
+  margin-bottom: 40px;
+}
+
+/* grille de fragments */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* cartes */
+.card {
+  border: 1px solid #222;
+  padding: 20px;
+  background: rgba(255,255,255,0.02);
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #555;
+  transform: scale(1.02);
+}
+
+/* footer */
+footer {
+  margin-top: 60px;
+  opacity: 0.4;
+  font-size: 12px;
+}

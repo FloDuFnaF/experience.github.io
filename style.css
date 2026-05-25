@@ -570,3 +570,31 @@ body {
 ::selection {
   background: rgba(255,255,255,0.15);
 }
+
+.fragment-12 {
+  background: radial-gradient(circle at top, #07090d, #020203);
+}
+
+.fragment-card {
+  max-width: 420px;
+  margin: auto;
+}
+
+.cipher-text {
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin: 15px 0;
+  opacity: 0.9;
+  font-family: ui-monospace, monospace;
+  animation: flicker 3s infinite;
+}
+
+.subtitle-frag {
+  opacity: 0.5;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.fragment-12 input {
+  margin-top: 10px;
+}

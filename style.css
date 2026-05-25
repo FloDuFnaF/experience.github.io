@@ -598,3 +598,32 @@ body {
 .fragment-12 input {
   margin-top: 10px;
 }
+
+.lore {
+  margin-top: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.lore-text {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.hidden-link {
+  margin-top: 20px;
+  font-size: 11px;
+  opacity: 0.4;
+  font-family: ui-monospace, monospace;
+}
+
+.glitch-url {
+  letter-spacing: 3px;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

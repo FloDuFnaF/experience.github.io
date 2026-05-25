@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-  <a href="index.html" class="login-btn">Déconnexion</a>
-
 <body class="home">
+
+<!-- bouton DECONNEXION (DOIT ÊTRE DANS BODY) -->
+<a href="index.html" class="login-btn">Déconnexion</a>
 
 <div class="system-overlay">
   <div class="sys-left">L-17 / node: unstable</div>
@@ -63,46 +64,45 @@
 
   </section>
 
-  <!-- SYS LOG SORTI DE LA GRID -->
+  <!-- SYS LOG -->
   <div class="card system-log">
     <h2>JOURNAL SYSTÈME</h2>
     <p>[12:44:02] fragmentation détectée dans le nœud L-17-A</p>
     <p>[12:44:11] index mémoire partiellement inaccessible</p>
     <p>[12:44:19] avertissement : corrélation observateur en hausse</p>
-
   </div>
 
   <footer>
     <p>accès restreint // observation uniquement</p>
   </footer>
 
-  </div>
-  
-  <!-- élément caché -->
-  <span style="opacity:0; position:absolute;">
-    L17::observer::true
-  </span>
-  
-  <script>
-  function checkPass(id) {
-    const input = document.getElementById("pass" + id);
-    const error = document.getElementById("err" + id);
-  
-    let correct = "";
-  
-    if (id === 1) correct = "L17-ORIGIN";
-    if (id === 2) correct = "POST-STRUCTURE";
-    if (id === 3) correct = "SIGNAL-NULL";
-  
-    if (input.value === correct) {
-      error.style.color = "#6CFF6C";
-      error.innerText = "accès validé";
-    } else {
-      error.style.color = "#FF4C4C";
-      error.innerText = "mot de passe incorrect";
-    }
+</div>
+
+<!-- élément caché -->
+<span style="opacity:0; position:absolute;">
+  L17::observer::true
+</span>
+
+<script>
+function checkPass(id) {
+  const input = document.getElementById("pass" + id);
+  const error = document.getElementById("err" + id);
+
+  let correct = "";
+
+  if (id === 1) correct = "L17-ORIGIN";
+  if (id === 2) correct = "POST-STRUCTURE";
+  if (id === 3) correct = "SIGNAL-NULL";
+
+  if (input.value === correct) {
+    error.style.color = "#6CFF6C";
+    error.innerText = "accès validé";
+  } else {
+    error.style.color = "#FF4C4C";
+    error.innerText = "mot de passe incorrect";
   }
-  </script>
-  
-  </body>
-  </html>
+}
+</script>
+
+</body>
+</html>

@@ -220,3 +220,133 @@ footer {
 * {
   box-sizing: border-box;
 }
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  overflow: hidden;
+}
+
+/* léger glow ambient */
+.login::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+}
+
+.login-box {
+  width: 320px;
+  padding: 32px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+}
+
+/* titre plus moderne */
+.login-box h1 {
+  font-size: 34px;
+  letter-spacing: 6px;
+  margin: 0;
+
+  background: linear-gradient(90deg, #ffffff, #8fa3c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* sous-titre clean */
+.login-box p {
+  opacity: 0.5;
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* inputs modernisés */
+.login-box input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.35);
+
+  color: white;
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.login-box input:focus {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
+}
+
+/* bouton plus “tech system” */
+.login-box button {
+  padding: 12px;
+  border-radius: 12px;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #1a1f2b, #0f131c);
+  color: white;
+
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  transition: 0.2s;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #2a3142, #141a25);
+}
+
+/* erreur plus propre */
+.login-box .error {
+  font-size: 12px;
+  opacity: 0.8;
+  min-height: 14px;
+}
+
+/* petit détail “scan system” */
+.login-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255,255,255,0.03),
+    transparent
+  );
+
+  animation: scan 5s infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}

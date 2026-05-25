@@ -443,3 +443,25 @@ html, body {
   transform: scale(1.02);
   background: linear-gradient(90deg, #2a3142, #1a2030);
 }
+
+.fragment {
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  color: #eaeaea;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fragment-container {
+  text-align: center;
+  opacity: 0.6;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-family: ui-monospace, monospace;
+}
+
+.fragment-text {
+  animation: flicker 4s infinite;
+}

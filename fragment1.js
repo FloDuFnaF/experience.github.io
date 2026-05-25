@@ -1,4 +1,3 @@
-<!-- fix deploy -->
 const phrase = "L17 OBSERVEUR NON AUTORISÉ";
 
 document.getElementById("captchaText").innerText = phrase;

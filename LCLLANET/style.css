@@ -1,0 +1,730 @@
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+/* texture légère */
+.noise {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+/* layout */
+.container {
+  padding: 80px clamp(20px, 6vw, 120px);
+}
+
+/* HEADER */
+header {
+  margin-bottom: 50px;
+}
+
+.glitch {
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  margin: 0;
+  position: relative;
+}
+
+.subtitle {
+  margin-top: 10px;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  height: 100%;
+  min-height: 240px;
+
+  box-sizing: border-box;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.2);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+/* TEXTES */
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+.card p {
+  font-size: 13px;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+/* INPUTS */
+.card input {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.4);
+  color: white;
+
+  outline: none;
+}
+
+.card input:focus {
+  border-color: rgba(255,255,255,0.3);
+}
+
+.card button {
+  width: 100%;
+  padding: 10px;
+
+  border-radius: 10px;
+  border: none;
+
+  background: linear-gradient(90deg, #1a1f2b, #121621);
+  color: white;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.card button:hover {
+  background: linear-gradient(90deg, #2a3142, #1a2030);
+  transform: scale(1.02);
+}
+
+/* ERROR */
+.error {
+  font-size: 12px;
+  margin-top: 6px;
+  opacity: 0.8;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 60px;
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+/* SYSTEM OVERLAY */
+.system-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  padding: 12px 20px;
+
+  font-size: 11px;
+  opacity: 0.3;
+  letter-spacing: 1px;
+
+  z-index: 999;
+  pointer-events: none;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+/* flicker subtil */
+@keyframes flicker {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.2; }
+}
+
+/* hidden note */
+.hidden-note {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 10px;
+  opacity: 0.08;
+  max-width: 200px;
+  pointer-events: none;
+}
+
+.system-log {
+  margin-top: 40px;
+  padding: 18px;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+
+  background: rgba(0,0,0,0.25);
+}
+
+
+.login-btn {
+  position: fixed !important;
+  top: 10px !important;
+  right: 20px !important;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+
+  backdrop-filter: blur(10px);
+}
+
+.login-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* léger glow ambient */
+.login::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%);
+  pointer-events: none;
+
+  z-index: 0;
+}
+
+.login-box {
+  width: 320px;
+  padding: 32px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+  isolation: isolate;
+  margin: 0 auto;
+
+  z-index: 1;
+
+  overflow: hidden;
+
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+}
+
+/* titre plus moderne */
+.login-box h1 {
+  font-size: 34px;
+  letter-spacing: 6px;
+  margin: 0;
+
+  position: relative;
+  animation: glitch 2s infinite;
+  will-change: transform;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-1px); }
+  60% { transform: translate(0); }
+}
+
+/* sous-titre clean */
+.login-box p {
+  opacity: 0.5;
+  font-size: 12px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* inputs modernisés */
+.login-box input {
+  width: 100%;
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.35);
+
+  color: white;
+  outline: none;
+
+  transition: 0.2s;
+}
+
+.login-box input:focus {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
+}
+
+/* bouton plus “tech system” */
+.login-box button {
+  padding: 12px;
+  border-radius: 12px;
+
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #1a1f2b, #0f131c);
+  color: white;
+
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  transition: 0.2s;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #2a3142, #141a25);
+}
+
+/* erreur plus propre */
+.login-box .error {
+  font-size: 12px;
+  opacity: 0.8;
+  min-height: 14px;
+}
+
+/* petit détail “scan system” */
+.login-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255,255,255,0.05),
+    transparent
+  );
+
+  animation: scan 3.5s linear infinite;
+  overflow: hidden;
+
+  opacity: 0.25;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.login-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.login-header h1 {
+  font-size: 42px;
+  letter-spacing: 8px;
+  margin: 0;
+}
+
+.login-header p {
+  font-size: 10px;
+  opacity: 0.4;
+  letter-spacing: 2px;
+}
+
+.login-separator {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 10px 0;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.typing {
+  position: static;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.typing.top {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.typing.bottom {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+
+  border-radius: 10px;
+  background: linear-gradient(90deg, #1a1f2b, #121621);
+  color: white;
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(90deg, #2a3142, #1a2030);
+}
+
+.fragment {
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  color: #eaeaea;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fragment-container {
+  text-align: center;
+  opacity: 0.6;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-family: ui-monospace, monospace;
+}
+
+.fragment-text {
+  animation: flicker 4s infinite;
+}
+
+#captchaText {
+  user-select: none;
+}
+
+/* base plus douce (réduction fatigue visuelle) */
+body.fragment {
+  background: radial-gradient(circle at top, #0b0e13, #050507);
+  color: #d6d6d6;
+}
+
+/* centre la scène proprement */
+.fragment .container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.fragment .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px; /* 👈 C’EST ICI LE FIX */
+  padding: 40px;
+}
+
+/* carte système plus “soft” */
+.card.system-log {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+}
+
+/* texte plus lisible */
+.card.system-log p {
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* titre plus stable */
+.card.system-log h2 {
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+/* bloc cipher (zone critique) */
+#cipherText {
+  margin: 15px 0;
+  padding: 10px 12px;
+
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 3px;
+
+  opacity: 0.85;
+}
+
+/* input plus stable */
+.card input {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.2s ease;
+}
+
+.card input:focus {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.45);
+}
+
+/* bouton plus “system control” */
+.card button {
+  background: linear-gradient(90deg, #151a24, #0f131c);
+  opacity: 0.9;
+  transition: 0.2s ease;
+}
+
+.card button:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* timer discret */
+#timer {
+  opacity: 0.5;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* erreur plus propre */
+.error {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* anti flash global (important pour confort) */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* sélection texte plus propre */
+::selection {
+  background: rgba(255,255,255,0.15);
+}
+
+.fragment-12 {
+  background: radial-gradient(circle at top, #07090d, #020203);
+}
+
+.fragment-card {
+  max-width: 420px;
+  margin: auto;
+}
+
+.fragment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cipher-text {
+  font-size: 18px;
+  letter-spacing: 4px;
+  margin: 15px 0;
+  opacity: 0.9;
+  font-family: ui-monospace, monospace;
+  animation: flicker 3s infinite;
+}
+
+.subtitle-frag {
+  opacity: 0.5;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.fragment-12 input {
+  margin-top: 10px;
+}
+
+.lore {
+  margin-top: 20px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.lore-text {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.hidden-link {
+  margin-top: 20px;
+  font-size: 11px;
+  opacity: 0.4;
+  font-family: ui-monospace, monospace;
+}
+
+.glitch-url {
+  letter-spacing: 3px;
+  animation: glitch 1.5s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.link-box {
+  margin-top: 0;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  font-family: ui-monospace, monospace;
+}
+
+.link-title {
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: 0.4;
+  margin-bottom: 8px;
+}
+
+.link-url {
+  font-size: 12px;
+  opacity: 0.7;
+  word-break: break-all;
+}
+
+.link-hint {
+  margin-top: 8px;
+  font-size: 10px;
+  opacity: 0.3;
+}
+
+.glitch-url {
+  letter-spacing: 3px;
+  animation: glitch 1.5s infinite;
+}
+
+.lore {
+  margin-top: 20px;
+}
+
+/* IMPORTANT : vrai fix */
+.card {
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* dossiers déroulables */
+.folder {
+  margin-top: 12px;
+  padding: 10px 12px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+
+  font-family: ui-monospace, monospace;
+}
+
+/* titre cliquable */
+.folder summary {
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  user-select: none;
+}
+
+/* contenu caché */
+.folder p {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+/* animation ouverture */
+.folder[open] {
+  border-color: rgba(255,255,255,0.15);
+}

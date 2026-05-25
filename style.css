@@ -470,3 +470,103 @@ html, body {
 #captchaText {
   user-select: none;
 }
+
+/* base plus douce (réduction fatigue visuelle) */
+body.fragment {
+  background: radial-gradient(circle at top, #0b0e13, #050507);
+  color: #d6d6d6;
+}
+
+/* centre la scène proprement */
+.fragment .container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* carte système plus “soft” */
+.card.system-log {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+}
+
+/* texte plus lisible */
+.card.system-log p {
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* titre plus stable */
+.card.system-log h2 {
+  letter-spacing: 2px;
+  opacity: 0.9;
+}
+
+/* bloc cipher (zone critique) */
+#cipherText {
+  margin: 15px 0;
+  padding: 10px 12px;
+
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 8px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 3px;
+
+  opacity: 0.85;
+}
+
+/* input plus stable */
+.card input {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: 0.2s ease;
+}
+
+.card input:focus {
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.45);
+}
+
+/* bouton plus “system control” */
+.card button {
+  background: linear-gradient(90deg, #151a24, #0f131c);
+  opacity: 0.9;
+  transition: 0.2s ease;
+}
+
+.card button:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* timer discret */
+#timer {
+  opacity: 0.5;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* erreur plus propre */
+.error {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* anti flash global (important pour confort) */
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* sélection texte plus propre */
+::selection {
+  background: rgba(255,255,255,0.15);
+}

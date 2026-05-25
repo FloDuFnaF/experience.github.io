@@ -21,6 +21,8 @@ const interval = setInterval(() => {
 
 function normalize(str) {
   return str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // retire les accents
     .trim()
     .replace(/\s+/g, " ")
     .toUpperCase();

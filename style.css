@@ -41,19 +41,26 @@ header {
   text-transform: uppercase;
 }
 
-/* GRID MODERNE */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
 }
 
-/* CARDS STYLE UI MODERNE */
+/* CARD */
 .card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
   padding: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  box-sizing: border-box;
+
   backdrop-filter: blur(10px);
   transition: 0.25s ease;
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -64,24 +71,24 @@ header {
   border-color: rgba(255,255,255,0.2);
 }
 
-/* TITRES DES FRAGMENTS */
+/* TEXTES */
 .card h2 {
   font-size: 14px;
   letter-spacing: 3px;
   opacity: 0.8;
 }
 
-/* TEXTE */
 .card p {
   font-size: 13px;
   opacity: 0.6;
   line-height: 1.4;
 }
 
-/* INPUTS MODERNES */
-input {
+/* INPUTS */
+.card input {
   width: 100%;
-  margin-top: 12px;
+  box-sizing: border-box;
+
   padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid rgba(255,255,255,0.1);
@@ -90,62 +97,76 @@ input {
   outline: none;
 }
 
-input:focus {
+.card input:focus {
   border-color: rgba(255,255,255,0.3);
 }
 
-/* BUTTON MODERNE */
-button {
-  margin-top: 10px;
+/* BUTTONS */
+.card button {
   width: 100%;
+  box-sizing: border-box;
+
   padding: 10px;
   border-radius: 10px;
   border: none;
+
   background: linear-gradient(90deg, #1a1f2b, #121621);
   color: white;
+
   cursor: pointer;
   transition: 0.2s;
   font-weight: 500;
 }
 
-button:hover {
+.card button:hover {
   background: linear-gradient(90deg, #2a3142, #1a2030);
   transform: scale(1.02);
 }
 
-/* ERREUR */
+/* ERROR */
 .error {
   font-size: 12px;
   margin-top: 6px;
   opacity: 0.8;
 }
 
-/* FOOTER CLEAN */
+/* FOOTER */
 footer {
   margin-top: 60px;
   opacity: 0.3;
   font-size: 12px;
 }
+
+/* SYSTEM OVERLAY */
 .system-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+
   display: flex;
   justify-content: space-between;
   padding: 12px 20px;
+
   font-size: 11px;
-  opacity: 0.35;
+  opacity: 0.3;
   letter-spacing: 1px;
+
   z-index: 999;
   pointer-events: none;
-}
 
-.sys-left, .sys-center, .sys-right {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  animation: flicker 6s infinite;
 }
 
-/* petit détail caché */
+/* flicker subtil */
+@keyframes flicker {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.2; }
+}
+
+/* hidden note */
 .hidden-note {
   position: fixed;
   bottom: 10px;
@@ -154,39 +175,4 @@ footer {
   opacity: 0.08;
   max-width: 200px;
   pointer-events: none;
-}
-
-/* micro “glitch respirant” */
-@keyframes flicker {
-  0%, 100% { opacity: 0.35; }
-  50% { opacity: 0.2; }
-}
-
-.system-overlay {
-  animation: flicker 6s infinite;
-}
-.card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-sizing: border-box;
-}
-
-/* IMPORTANT : empêche dépassement */
-.card input {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-/* bouton aligné proprement */
-.card button {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-.card input,
-.card button {
-  width: 100%;
-  box-sizing: border-box;
 }

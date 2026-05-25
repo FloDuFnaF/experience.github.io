@@ -229,6 +229,7 @@ footer {
 
   background: radial-gradient(circle at top, #0c0f14, #050507);
   overflow: hidden;
+  position: relative;
 }
 
 /* léger glow ambient */
@@ -238,6 +239,8 @@ footer {
   inset: 0;
   background: radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%);
   pointer-events: none;
+
+  z-index: 0;
 }
 
 .login-box {
@@ -258,6 +261,8 @@ footer {
   gap: 12px;
 
   position: relative;
+
+  z-index: 1;
 }
 
 /* titre plus moderne */
@@ -338,12 +343,16 @@ footer {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.02),
     transparent
   );
 
-  animation: scan 5s infinite;
+  animation: scan 6s infinite;
+
   pointer-events: none;
+
+  opacity: 0.4;
+  z-index: 0;
 }
 
 @keyframes scan {

@@ -1,112 +1,128 @@
 body {
   margin: 0;
-  background: #050507;
-  color: #e6e6e6;
-  font-family: Arial, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  color: #eaeaea;
   overflow-x: hidden;
 }
 
-/* bruit visuel */
+/* texture légère */
 .noise {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  opacity: 0.05;
+  opacity: 0.04;
   pointer-events: none;
 }
 
 /* layout */
 .container {
-  padding: 60px;
+  padding: 80px 10vw;
 }
 
-/* titre principal glitch */
+/* HEADER */
+header {
+  margin-bottom: 50px;
+}
+
 .glitch {
-  font-size: 80px;
-  letter-spacing: 10px;
-  text-transform: uppercase;
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  margin: 0;
   position: relative;
 }
 
-/* effet glitch simple */
-.glitch::before,
-.glitch::after {
-  content: "L-17";
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0.6;
-}
-
-.glitch::before {
-  color: red;
-  transform: translateX(-2px);
-}
-
-.glitch::after {
-  color: cyan;
-  transform: translateX(2px);
-}
-
-/* sous-titre */
 .subtitle {
-  opacity: 0.6;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  opacity: 0.5;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* grille de fragments */
+/* GRID MODERNE */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
 }
 
-/* cartes */
+/* CARDS STYLE UI MODERNE */
 .card {
-  border: 1px solid #222;
-  padding: 20px;
-  background: rgba(255,255,255,0.02);
-  transition: 0.3s;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 18px;
+  backdrop-filter: blur(10px);
+  transition: 0.25s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
 .card:hover {
-  border-color: #555;
-  transform: scale(1.02);
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,0.2);
 }
 
-/* footer */
-footer {
-  margin-top: 60px;
-  opacity: 0.4;
-  font-size: 12px;
+/* TITRES DES FRAGMENTS */
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0.8;
 }
+
+/* TEXTE */
+.card p {
+  font-size: 13px;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+/* INPUTS MODERNES */
 input {
   width: 100%;
-  margin-top: 10px;
-  padding: 8px;
-  background: black;
-  border: 1px solid #333;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.4);
   color: white;
+  outline: none;
 }
 
+input:focus {
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* BUTTON MODERNE */
 button {
-  margin-top: 8px;
-  padding: 8px;
-  background: #111;
-  border: 1px solid #333;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #1a1f2b, #121621);
   color: white;
   cursor: pointer;
+  transition: 0.2s;
+  font-weight: 500;
 }
 
 button:hover {
-  border-color: #666;
+  background: linear-gradient(90deg, #2a3142, #1a2030);
+  transform: scale(1.02);
 }
 
+/* ERREUR */
 .error {
   font-size: 12px;
-  margin-top: 5px;
+  margin-top: 6px;
   opacity: 0.8;
+}
+
+/* FOOTER CLEAN */
+footer {
+  margin-top: 60px;
+  opacity: 0.3;
+  font-size: 12px;
 }

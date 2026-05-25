@@ -416,3 +416,14 @@ html, body {
   overflow-x: hidden;
 }
 
+.typing.top {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.typing.bottom {
+  margin-top: 10px;
+  text-align: center;
+}

@@ -1,61 +1,35 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>L-17 // FRAGMENT 1.2</title>
+<div class="card system-log fragment-card">
 
-<link rel="stylesheet" href="style.css">
+  <h2>SEGMENT L-17-1.2</h2>
 
-</head>
+  <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
 
-<body class="fragment fragment-12">
+  <p style="opacity:0.7; margin-top:10px;">
+    DÉCODE LE SIGNAL SUIVANT :
+  </p>
 
-<div class="noise"></div>
+  <p id="cipherText" class="cipher-text">
+    chargement du signal...
+  </p>
 
-<div class="container">
+  <input id="input" autocomplete="off" placeholder="clé de déchiffrement">
 
-  <div class="card system-log fragment-card">
+  <button onclick="validate()">VALIDER ACCÈS</button>
 
-    <h2>SEGMENT L-17-1.2</h2>
+  <p id="error" class="error"></p>
 
-    <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
+  <!-- 👇 ICI tu mets la link box -->
+  <div class="link-box">
+    <p class="link-title">POINT D’ACCÈS PARTIEL</p>
 
-    <p style="opacity:0.7; margin-top:10px;">
-      DÉCODE LE SIGNAL SUIVANT :
+    <p class="link-url">
+      https://flodufnaf.github.io/experience.github.io/
+      <span class="glitch-url">XXXXXXXX</span>
     </p>
 
-    <p id="cipherText" class="cipher-text">
-      chargement du signal...
+    <p class="link-hint">
+      signature fragmentée — 8 unités manquantes
     </p>
-
-    <input 
-      id="input" 
-      autocomplete="off" 
-      placeholder="clé de déchiffrement"
-    >
-
-    <button onclick="validate()">VALIDER ACCÈS</button>
-
-    <p id="error" class="error"></p>
-
   </div>
 
-  <div class="link-box">
-  <p class="link-title">POINT D’ACCÈS PARTIEL</p>
-  
-  <p class="link-url">
-    https://flodufnaf.github.io/experience.github.io/
-    <span class="glitch-url">XXXXXXXX</span>
-  </p>
-
-  <p class="link-hint">
-    signature fragmentée — 8 unités manquantes
-  </p>
 </div>
-
-</div>
-
-<script src="fragment1-2.js"></script>
-
-</body>
-</html>

@@ -62,8 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!secretFolder) return;
 
   secretFolder.addEventListener("toggle", () => {
-    if (secretFolder.open) {
+    if (secretFolder.open && !window.fragment2Shown) {
       revealFragment2();
+      window.fragment2Shown = true;
     }
   });
 });

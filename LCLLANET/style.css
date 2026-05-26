@@ -21,6 +21,11 @@ body {
   padding: 80px clamp(20px, 6vw, 120px);
 }
 
+.container {
+  width: 100%;
+  max-width: 900px;
+}
+
 /* HEADER */
 header {
   margin-bottom: 50px;
@@ -440,10 +445,14 @@ html, body {
 .fragment {
   background: radial-gradient(circle at top, #0c0f14, #050507);
   color: #eaeaea;
-  height: 100vh;
-  overflow: hidden;
+
+  min-height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 

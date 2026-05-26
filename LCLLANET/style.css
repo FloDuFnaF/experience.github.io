@@ -741,3 +741,60 @@ body {
 .hidden {
   display: none;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.03) 0px,
+    rgba(255,255,255,0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+
+  animation: scanlines 6s linear infinite;
+  opacity: 0.08;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(20px); }
+}
+
+.glitch-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(255,255,255,0.02), transparent 45%);
+
+  animation: drift 12s infinite alternate;
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(10px,-8px) scale(1.05); }
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  2% { opacity: 0.6; }
+  4% { opacity: 1; }
+  50% { opacity: 0.95; }
+  52% { opacity: 0.4; }
+  54% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+body {
+  animation: flicker 8s infinite;
+}

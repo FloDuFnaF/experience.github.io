@@ -95,6 +95,7 @@ function revealFragment2() {
     node.style.transition = "0.8s ease";
     node.style.opacity = "1";
     node.style.transform = "translateY(0)";
+  console.log("FRAGMENT 2 TRIGGERED");
   });
 
   startGlitch(node);

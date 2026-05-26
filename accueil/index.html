@@ -10,8 +10,6 @@
 
   <div class="login-box">
 
-    <p class="typing top">initialisation du système...</p>
-
     <div class="login-header">
       <h1>L-17</h1>
       <p>SYSTÈME D’ACCÈS RESTREINT</p>
@@ -24,28 +22,35 @@
 
     <button id="loginBtn">AUTHENTIFIER</button>
 
-    <p class="typing bottom">initialisation du protocole...</p>
+    <p class="forgot-text">identifiant ou mot de passe oublié ?</p>
+
+    <button id="helpBtn" class="help-btn">contacter l’aide</button>
 
     <p id="error" class="error"></p>
 
   </div>
 
   <script>
-    document.getElementById("loginBtn").addEventListener("click", () => {
+    const loginBtn = document.getElementById("loginBtn");
+    const helpBtn = document.getElementById("helpBtn");
+
+    loginBtn.addEventListener("click", () => {
 
       const user = document.getElementById("user").value.trim();
       const pass = document.getElementById("pass").value.trim();
       const error = document.getElementById("error");
 
       if (user === "admin" && pass === "L17-ORIGIN") {
-
         error.innerText = "";
-
         window.location.href = "https://flodufnaf.github.io/experience.github.io/home";
-
       } else {
         error.innerText = "accès refusé";
       }
+    });
+
+    helpBtn.addEventListener("click", () => {
+      const error = document.getElementById("error");
+      error.innerText = "veuillez réessayer plus tard";
     });
   </script>
 

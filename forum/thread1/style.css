@@ -1,0 +1,160 @@
+/* =========================
+   FORUM / THREAD STYLE
+========================= */
+
+.forum-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* HEADER FORUM / THREAD */
+.forum-header {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.forum-header h1 {
+  font-size: 34px;
+  letter-spacing: 4px;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.forum-header p {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.forum-warning {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 11px;
+  opacity: 0.35;
+  letter-spacing: 1px;
+  font-family: ui-monospace, monospace;
+}
+
+/* =========================
+   THREAD LIST
+========================= */
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* POST / CARD */
+.thread-card {
+  padding: 16px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.2s ease;
+}
+
+.thread-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* HEADER POST */
+.thread-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 10px;
+  font-size: 11px;
+  opacity: 0.6;
+
+  font-family: ui-monospace, monospace;
+}
+
+.thread-tag {
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.thread-date {
+  opacity: 0.4;
+}
+
+/* TEXT CONTENT */
+.thread-card h2 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
+}
+
+.thread-card p {
+  font-size: 13px;
+  opacity: 0.65;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+/* LINKS */
+.thread-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.thread-link:hover {
+  opacity: 1;
+}
+
+/* =========================
+   STATES (locked / deleted)
+========================= */
+
+.thread-card.locked {
+  opacity: 0.5;
+  filter: grayscale(0.4);
+  pointer-events: none;
+}
+
+.thread-card.deleted {
+  opacity: 0.3;
+  font-style: italic;
+}
+
+/* =========================
+   SMALL GLITCH TOUCH (SUBTLE)
+========================= */
+
+.thread-card {
+  position: relative;
+}
+
+.thread-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.03),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.thread-card:hover::after {
+  opacity: 1;
+}

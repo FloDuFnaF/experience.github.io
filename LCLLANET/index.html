@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>L-17 // LCLLANET</title>
 
-  <!-- CSS (OBLIGATOIRE : doit être dans <head>) -->
   <link rel="stylesheet" href="style.css?v=2">
 </head>
 
@@ -29,11 +28,9 @@
         <p>
           Le protocole L-17 a été initialisé dans un environnement isolé conformément aux directives de test A/19.<br><br>
           Les conditions d’observation ont été validées sans intervention humaine directe sur les flux générés.<br><br>
-          Les premières heures d’exécution ne présentent aucune divergence significative par rapport aux modèles attendus.<br><br>
-          Cependant, plusieurs entrées log sont apparues sans correspondance dans les journaux sources.<br><br>
-          Ces entrées sont classées comme “non attribuées” en attente de vérification.<br><br>
-          Dernière note enregistrée :<br>
-          “Le cadre d’observation semble inclure des éléments non prévus dans la configuration initiale.”
+          Les premières heures d’exécution ne présentent aucune divergence significative.<br><br>
+          Plusieurs entrées log sont apparues sans correspondance dans les journaux sources.<br><br>
+          “Le cadre d’observation semble inclure des éléments non prévus.”
         </p>
       </details>
 
@@ -41,12 +38,10 @@
       <details class="folder">
         <summary>FRAGMENT ARCHIVE // 002</summary>
         <p>
-          Les analyses du cycle 03 indiquent une augmentation des incohérences dans les données secondaires.<br><br>
-          Certaines séquences textuelles apparaissent partiellement altérées lors de la compilation des rapports.<br><br>
-          Les opérateurs rapportent des divergences entre les résultats affichés et les données archivées.<br><br>
-          L’interface LCLLANET présente des variations mineures non réplicables entre sessions d’accès.<br><br>
-          Aucune intrusion externe n’a été détectée dans les systèmes principaux.<br><br>
-          Les anomalies sont actuellement classées comme :<br>
+          Augmentation des incohérences dans les données secondaires.<br><br>
+          Altérations partielles lors de la compilation des rapports.<br><br>
+          Divergences entre affichage et archives.<br><br>
+          Variations non réplicables entre sessions.<br><br>
           “internal variance — cause indéterminée”
         </p>
       </details>
@@ -55,29 +50,58 @@
       <details class="folder">
         <summary>FRAGMENT ARCHIVE // 003</summary>
         <p>
-          Une séquence de données critique a été signalée comme manquante lors de la vérification de cohérence du noyau L-17.<br><br>
-          Les registres indiquent que cette séquence n’a jamais été correctement stabilisée dans les archives principales.<br><br>
-          Plusieurs tentatives de reconstruction automatique ont produit des variations incompatibles entre elles.<br><br>
-          Les systèmes de sauvegarde présentent des écarts temporels légers mais persistants.<br><br>
-          Dernière conclusion interne disponible :<br>
-          “L’intégrité du système ne peut être confirmée à partir d’un état unique de lecture.”
+          Séquence critique manquante dans le noyau L-17.<br><br>
+          Reconstruction automatique instable.<br><br>
+          Écarts temporels persistants.<br><br>
+          “L’intégrité du système ne peut être confirmée.”
         </p>
       </details>
 
-      <!-- 🔒 DOSSIER SECRET (INACTIF PAR DÉFAUT) -->
-      <details class="folder hidden-folder" id="secretFolder">
+      <!-- 🔒 DOSSIER SECRET (VRAI SYSTÈME) -->
+      <details class="folder" id="secretFolder">
         <summary>ARCHIVE NON INDEXÉE</summary>
         <p>
-          accès refusé — clé requise<br>
-          tentative de reconstruction en attente...
+          accès conditionnel — clé requise
         </p>
       </details>
+
+      <!-- 🔥 FRAGMENT 2 (CACHÉ PROPREMENT) -->
+      <div class="card system-log fragment-message hidden" id="fragment2">
+
+        <h2>TRANSMISSION INTERNE // ARCHIVE NON INDEXÉE</h2>
+
+        <p class="meta">
+          IDENTIFIANT : L-17 / SUPERVISION SECONDAIRE<br>
+          SOURCE : NŒUD D’OBSERVATION Δ-3
+        </p>
+
+        <p>
+          Les données du cycle L-17 ne correspondent plus aux modèles initiaux.
+        </p>
+
+        <p>
+          Les archives LCLLANET présentent une divergence structurelle persistante.
+        </p>
+
+        <p>
+          Le système dérive d’une variation interne non documentée.
+        </p>
+
+        <p class="warning">
+          POST-STRUCTURE // REQUEST INITIATED<br>
+          [ ACCÈS OUVERT ]
+        </p>
+
+        <p class="note">
+          Note : les archives semblent se modifier entre consultations.
+        </p>
+
+      </div>
 
     </div>
 
   </div>
 
-  <!-- JS (important si tu veux le rendre interactif) -->
   <script src="LCLLANET.js?v=2"></script>
 
 </body>

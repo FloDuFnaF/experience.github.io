@@ -46,31 +46,43 @@ const fragment2 = `
 
 
 // =============================
-// INITIALISATION
+// CONFIG
+// =============================
+
+let fragment2Shown = false;
+
+
+// =============================
+// INIT
 // =============================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const secretFolder = document.querySelector(".hidden-folder");
+  const secretFolder = document.getElementById("secretFolder");
 
   if (!secretFolder) return;
 
-  // clic sur l’archive cachée
-  secretFolder.addEventListener("toggle", () => {
-    if (secretFolder.open) {
-      revealFragment2();
-    }
+  // méthode fiable : clic sur summary
+  const summary = secretFolder.querySelector("summary");
+
+  summary.addEventListener("click", () => {
+
+    // petit délai pour laisser "open" se mettre à jour
+    setTimeout(() => {
+      if (secretFolder.open) {
+        revealFragment2();
+      }
+    }, 50);
+
   });
 });
 
 
 // =============================
-// RÉVÉLATION FRAGMENT 2
+// REVEAL FRAGMENT 2
 // =============================
 
-let fragment2Shown = false;
-
 function revealFragment2() {
-  if (fragment2Shown) return; // évite duplication
+  if (fragment2Shown) return;
   fragment2Shown = true;
 
   const container = document.querySelector(".container");
@@ -97,23 +109,29 @@ function revealFragment2() {
 
 
 // =============================
-// GLITCH LÉGER (SAFE)
+// GLITCH SAFE
 // =============================
 
 function startGlitch(root) {
   const paragraphs = root.querySelectorAll("p");
 
-  setInterval(() => {
+  const interval = setInterval(() => {
+    if (!document.body.contains(root)) {
+      clearInterval(interval);
+      return;
+    }
+
     paragraphs.forEach(p => {
       if (Math.random() > 0.985) {
-        const oldOpacity = p.style.opacity;
+        const old = p.style.opacity;
 
         p.style.opacity = "0.35";
 
         setTimeout(() => {
-          p.style.opacity = oldOpacity || "";
+          p.style.opacity = old || "";
         }, 120);
       }
     });
+
   }, 400);
 }

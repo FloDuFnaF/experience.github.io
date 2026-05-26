@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.querySelector(".container");
   const fragment2 = document.getElementById("fragment2");
 
-  const PASSWORD = "POST-STRUCTURE";
+  const PASSWORD = "NODAL-Δ3";
 
   let unlocked = false;
 

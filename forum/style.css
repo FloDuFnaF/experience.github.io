@@ -303,3 +303,30 @@ body::after {
 ::selection {
   background: rgba(255,255,255,0.15);
 }
+
+/* =========================
+   EMERGENCY FIX VISUAL
+========================= */
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+}
+
+/* force visibilité des cards */
+.card, .fragment-card {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* sécurité layout fragment */
+.fragment .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh;
+}

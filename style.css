@@ -124,6 +124,7 @@ header {
   cursor: pointer;
 
   transition: all 0.2s ease;
+  margin-top: 12px;
 }
 
 .card button:hover {

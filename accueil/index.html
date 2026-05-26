@@ -1,4 +1,3 @@
-<!-- fix deploy -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,58 +8,46 @@
 
 <body class="login">
 
-<div class="login-box">
+  <div class="login-box">
 
-  <!-- OVERLAY TIMER -->
-  <div id="overlay" class="overlay hidden">
-    <div class="overlay-content">
-      <p>STABILISATION DU SYSTÈME EN COURS</p>
-      <h2 id="timer">00:00:00</h2>
+    <p class="typing top">initialisation du système...</p>
+
+    <div class="login-header">
+      <h1>L-17</h1>
+      <p>SYSTÈME D’ACCÈS RESTREINT</p>
     </div>
+
+    <div class="login-separator"></div>
+
+    <input type="text" id="user" placeholder="identifiant">
+    <input type="password" id="pass" placeholder="mot de passe">
+
+    <button id="loginBtn">AUTHENTIFIER</button>
+
+    <p class="typing bottom">initialisation du protocole...</p>
+
+    <p id="error" class="error"></p>
+
   </div>
 
-  <!-- TEXTE SYSTEM -->
-  <p class="typing top">initialisation du système...</p>
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
 
-  <div class="login-header">
-    <h1>L-17</h1>
-    <p>SYSTÈME D’ACCÈS RESTREINT</p>
-  </div>
+      const user = document.getElementById("user").value.trim();
+      const pass = document.getElementById("pass").value.trim();
+      const error = document.getElementById("error");
 
-  <div class="login-separator"></div>
+      if (user === "admin" && pass === "L17-ORIGIN") {
 
-  <!-- INPUTS -->
-  <input type="text" id="user" placeholder="identifiant">
-  <input type="password" id="pass" placeholder="mot de passe">
+        error.innerText = "";
 
-  <button onclick="login()">AUTHENTIFIER</button>
+        window.location.href = "https://flodufnaf.github.io/experience.github.io/home";
 
-  <p class="typing bottom">initialisation du protocole...</p>
-
-  <p id="error" class="error"></p>
-
-</div>
-
-<script>
-function login() {
-  const user = document.getElementById("user").value;
-  const pass = document.getElementById("pass").value;
-
-  if (user === "admin" && pass === "L17-ORIGIN") {
-
-    // petit effet optionnel propre (si tu veux activer overlay plus tard)
-    const overlay = document.getElementById("overlay");
-    if (overlay) overlay.classList.remove("hidden");
-
-    setTimeout(() => {
-      window.location.href = "https://flodufnaf.github.io/experience.github.io/home";
-    }, 900);
-
-  } else {
-    document.getElementById("error").innerText = "accès refusé";
-  }
-}
-</script>
+      } else {
+        error.innerText = "accès refusé";
+      }
+    });
+  </script>
 
 </body>
 </html>

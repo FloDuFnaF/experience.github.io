@@ -58,12 +58,15 @@
         </p>
       </details>
 
-      <!-- 🔒 DOSSIER SECRET (VRAI SYSTÈME) -->
+      <!-- 🔒 DOSSIER SECRET -->
       <details class="folder" id="secretFolder">
         <summary>ARCHIVE NON INDEXÉE</summary>
-        <p>
-          accès conditionnel — clé requise
-        </p>
+        <p>clé requise pour déchiffrement</p>
+      
+        <input id="passInput" placeholder="clé d’accès">
+        <button id="passBtn">valider</button>
+      
+        <p id="systemMsg" style="opacity:0.5; font-size:12px;"></p>
       </details>
 
       <!-- 🔥 FRAGMENT 2 (CACHÉ PROPREMENT) -->

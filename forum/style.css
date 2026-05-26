@@ -25,6 +25,18 @@ body {
   position: relative;
 }
 
+/* =========================
+   PAGE MODES CLEAN SEPARATION
+========================= */
+
+body.login-page .container {
+  all: unset;
+}
+
+body.fragment-page .container {
+  all: unset;
+}
+
 /* noise overlay */
 body::before {
   content: "";
@@ -305,4 +317,74 @@ body::after {
 
 ::selection {
   background: rgba(255,255,255,0.15);
+}
+
+/* =========================
+   FORUM LAYOUT FIX
+========================= */
+
+.forum-page .forum-container {
+  width: min(1000px, 92%);
+  margin: auto;
+  padding: 80px 0;
+}
+
+.forum-header {
+  margin-bottom: 40px;
+}
+
+.forum-header h1 {
+  font-size: 38px;
+  letter-spacing: 5px;
+  margin: 0;
+}
+
+.forum-header p {
+  opacity: 0.5;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thread-card {
+  padding: 18px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.thread-card h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.thread-card p {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.thread-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+body.forum-page {
+  background: radial-gradient(circle at top, #0b0f14, #050507);
+}
+
+body.login {
+  overflow: hidden;
+}
+
+body.fragment {
+  overflow: hidden;
 }

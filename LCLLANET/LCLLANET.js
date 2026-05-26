@@ -1,10 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   const btn = document.getElementById("passBtn");
   const input = document.getElementById("passInput");
   const msg = document.getElementById("systemMsg");
   const container = document.querySelector(".container");
 
-  const PASSWORD = "POST-STRUCTURE";
+  const PASSWORD = "NODAL-Δ3";
 
   const fragment2 = `
     <div class="card system-log fragment-message">
@@ -17,37 +18,61 @@ document.addEventListener("DOMContentLoaded", () => {
       </p>
 
       <p>
-        Les données du cycle L-17 ne correspondent plus aux modèles initiaux.
+        Les données issues du cycle L-17 ne correspondent plus aux modèles initiaux.
+        Des reconstructions non prévues apparaissent dans les flux.
       </p>
 
       <p>
-        Les archives présentent une divergence structurelle persistante.
+        Les archives LCLLANET présentent une divergence persistante.
       </p>
 
       <p>
-        Le système dérive d’une variation interne non documentée.
+        Le système semble fonctionner hors stabilisation.
       </p>
 
       <p style="opacity:0.5;">
-        POST-STRUCTURE VALIDÉE
+        ACCÈS VALIDÉ — NIVEAU POST-STRUCTURE
       </p>
 
     </div>
   `;
 
   btn.addEventListener("click", () => {
+
+    if (!container) {
+      console.log("Container introuvable");
+      return;
+    }
+
     const value = input.value.trim();
 
     if (value === PASSWORD) {
-      msg.textContent = "accès validé... reconstruction en cours";
+
+      msg.textContent = "clé acceptée — ouverture du canal Δ-3";
 
       setTimeout(() => {
         const wrapper = document.createElement("div");
         wrapper.innerHTML = fragment2;
-        container.appendChild(wrapper.firstElementChild);
-      }, 800);
 
-    } else {
+        const node = wrapper.querySelector(".fragment-message");
+
+        if (!node) return;
+
+        node.style.opacity = "0";
+        node.style.transform = "translateY(10px)";
+
+        container.appendChild(node);
+
+        requestAnimationFrame(() => {
+          node.style.transition = "0.8s ease";
+          node.style.opacity = "1";
+          node.style.transform = "translateY(0)";
+        });
+
+      }, 700);
+    }
+
+    else {
       msg.textContent = "clé invalide — tentative enregistrée";
     }
   });

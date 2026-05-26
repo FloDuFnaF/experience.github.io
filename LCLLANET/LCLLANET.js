@@ -9,31 +9,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const fragment2 = `
     <div class="card system-log fragment-message">
-
+  
       <h2>TRANSMISSION INTERNE // ARCHIVE NON INDEXÉE</h2>
-
+  
       <p class="meta">
         IDENTIFIANT : L-17 / SUPERVISION SECONDAIRE<br>
         SOURCE : NŒUD D’OBSERVATION Δ-3
       </p>
-
+  
       <p>
-        Les données issues du cycle L-17 ne correspondent plus aux modèles initiaux.
-        Des reconstructions non prévues apparaissent dans les flux.
+        Les données issues du cycle L-17 ne correspondent plus aux modèles de validation initiaux.
+        Plusieurs ensembles d’informations semblent se réécrire hors des phases de stabilisation prévues.
       </p>
-
+  
       <p>
-        Les archives LCLLANET présentent une divergence persistante.
+        Les archives LCLLANET ne peuvent plus être considérées comme fiables.
+        Une divergence structurelle a été détectée dans les séquences de reconstruction.
       </p>
-
+  
       <p>
-        Le système semble fonctionner hors stabilisation.
+        Le système ne dérive plus d’un état stable mais d’une variation interne continue.
+        Aucun protocole existant ne décrit ce comportement.
       </p>
-
-      <p style="opacity:0.5;">
-        ACCÈS VALIDÉ — NIVEAU POST-STRUCTURE
+  
+      <p class="warning">
+        POST-STRUCTURE // REQUEST INITIATED<br>
+        <strong style="letter-spacing:2px; opacity:0.95;">
+          CLÉ D’ACCÈS IDENTIFIÉE : POST-STRUCTURE
+        </strong>
       </p>
-
+  
+      <p class="note">
+        Note personnelle : les archives semblent se modifier entre deux consultations.
+      </p>
+  
     </div>
   `;
 

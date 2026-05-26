@@ -61,18 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!secretFolder) return;
 
-  // méthode fiable : clic sur summary
-  const summary = secretFolder.querySelector("summary");
-
-  summary.addEventListener("click", () => {
-
-    // petit délai pour laisser "open" se mettre à jour
-    setTimeout(() => {
-      if (secretFolder.open) {
-        revealFragment2();
-      }
-    }, 50);
-
+  secretFolder.addEventListener("toggle", () => {
+    if (secretFolder.open) {
+      revealFragment2();
+    }
   });
 });
 

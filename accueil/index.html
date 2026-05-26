@@ -10,6 +10,8 @@
 <body class="login">
 
 <div class="login-box">
+
+  <!-- OVERLAY TIMER -->
   <div id="overlay" class="overlay hidden">
     <div class="overlay-content">
       <p>STABILISATION DU SYSTÈME EN COURS</p>
@@ -17,6 +19,7 @@
     </div>
   </div>
 
+  <!-- TEXTE SYSTEM -->
   <p class="typing top">initialisation du système...</p>
 
   <div class="login-header">
@@ -26,6 +29,7 @@
 
   <div class="login-separator"></div>
 
+  <!-- INPUTS -->
   <input type="text" id="user" placeholder="identifiant">
   <input type="password" id="pass" placeholder="mot de passe">
 
@@ -43,7 +47,15 @@ function login() {
   const pass = document.getElementById("pass").value;
 
   if (user === "admin" && pass === "L17-ORIGIN") {
-    window.location.href = "home.html";
+
+    // petit effet optionnel propre (si tu veux activer overlay plus tard)
+    const overlay = document.getElementById("overlay");
+    if (overlay) overlay.classList.remove("hidden");
+
+    setTimeout(() => {
+      window.location.href = "https://flodufnaf.github.io/experience.github.io/home";
+    }, 900);
+
   } else {
     document.getElementById("error").innerText = "accès refusé";
   }

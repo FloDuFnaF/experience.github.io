@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>THREAD // variations archives L-17</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="forum-page">
+
+  <div class="forum-container">
+
+    <!-- HEADER THREAD -->
+    <header class="forum-header">
+
+      <h1>DISCUSSION // ARCHIVES L-17</h1>
+
+      <p>
+        fil de discussion archivé — lecture seule<br>
+        certaines entrées peuvent être incomplètes
+      </p>
+
+      <span class="forum-warning">
+        thread synchronisé depuis snapshot instable
+      </span>
+
+    </header>
+
+    <!-- POSTS -->
+    <main class="thread-list">
+
+      <!-- POST 1 -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">DeltaNode</span>
+          <span class="thread-date">14.09.2019 — 18:42</span>
+        </div>
+
+        <p>
+          Est-ce que quelqu’un d’autre a remarqué des différences entre deux consultations des archives L-17 ?
+          Je parle pas de latence ou de cache côté client, mais de contenu réellement différent.
+        </p>
+
+        <p>
+          J’ai comparé deux snapshots du même dossier (activation protocol) à 3 minutes d’intervalle.
+          Certaines lignes ont été modifiées sans journal de version.
+        </p>
+
+      </div>
+
+      <!-- POST 2 -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">Archivist_12</span>
+          <span class="thread-date">14.09.2019 — 18:51</span>
+        </div>
+
+        <p>
+          Tu confirmes que ce n’est pas un problème de synchronisation locale ?
+        </p>
+
+        <p>
+          On a eu des cas similaires sur le cluster secondaire, mais ça a été attribué à un bug de cache.
+        </p>
+
+      </div>
+
+      <!-- POST 3 -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">n0_signal</span>
+          <span class="thread-date">14.09.2019 — 19:03</span>
+        </div>
+
+        <p>
+          Ce n’est pas un bug de cache.
+        </p>
+
+        <p>
+          Les données L-17 ne sont pas statiques depuis la dernière mise à jour du noyau.
+          Elles réagissent à l’accès.
+        </p>
+
+      </div>
+
+      <!-- POST 4 (SUSPECT) -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">[SUPPRIMÉ]</span>
+          <span class="thread-date">14.09.2019 — 19:10</span>
+        </div>
+
+        <p>
+          vous ne devriez pas consulter les archives trop souvent.
+        </p>
+
+        <p style="opacity:0.3;">
+          message édité — raison : violation protocole de consultation
+        </p>
+
+      </div>
+
+      <!-- POST 5 -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">C-0</span>
+          <span class="thread-date">14.09.2019 — 19:22</span>
+        </div>
+
+        <p>
+          Confirmation partielle côté logs système.
+        </p>
+
+        <p>
+          Des différences de contenu apparaissent entre deux requêtes identiques.
+          Aucun trigger externe identifié pour l’instant.
+        </p>
+
+        <p>
+          Investigation en cours sur NODAL-Δ3.
+        </p>
+
+      </div>
+
+      <!-- POST 6 (IMPORTANT HINT) -->
+      <div class="thread-card">
+
+        <div class="thread-top">
+          <span class="thread-tag">Archivist_12</span>
+          <span class="thread-date">14.09.2019 — 19:41</span>
+        </div>
+
+        <p>
+          J’ai retrouvé un ancien log système.
+        </p>
+
+        <p>
+          Il mentionne un accès administratif résiduel qui n’a jamais été désactivé complètement.
+        </p>
+
+        <p>
+          Identifiant : <strong>admin</strong><br>
+          Mot de passe partiel : <strong>NODAL-Δ3</strong>
+        </p>
+
+        <p style="opacity:0.5;">
+          ce message sera probablement supprimé lors de la prochaine synchronisation
+        </p>
+
+      </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="margin-top:60px; opacity:0.25; font-size:11px; text-align:center;">
+      THREAD ARCHIVÉ // aucune modification autorisée // L-17 monitoring actif
+    </footer>
+
+  </div>
+
+</body>
+</html>

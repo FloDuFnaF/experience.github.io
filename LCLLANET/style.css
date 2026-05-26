@@ -730,3 +730,14 @@ body {
 .hidden-folder {
   display: none;
 }
+
+.fragment-message {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.6s ease;
+}
+
+.hidden {
+  display: none;
+}

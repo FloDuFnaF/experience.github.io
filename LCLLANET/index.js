@@ -46,58 +46,87 @@ const fragment2 = `
 
 
 // =============================
-// CONFIG
+// ÉTAT GLOBAL
 // =============================
 
 let fragment2Shown = false;
 
 
 // =============================
-// INIT
+// INITIALISATION
 // =============================
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  console.log("LCLLANET INITIALIZED");
+
   const secretFolder = document.getElementById("secretFolder");
 
-  if (!secretFolder) return;
+  if (!secretFolder) {
+    console.error("secretFolder introuvable");
+    return;
+  }
 
+  // ouverture du dossier secret
   secretFolder.addEventListener("toggle", () => {
-    if (secretFolder.open && !window.fragment2Shown) {
-      revealFragment2();
-      window.fragment2Shown = true;
+
+    // uniquement quand ouvert
+    if (secretFolder.open && !fragment2Shown) {
+
+      console.log("ARCHIVE NON INDEXÉE OUVERTE");
+
+      // petit délai système
+      setTimeout(() => {
+        revealFragment2();
+      }, 1800);
     }
+
   });
+
 });
 
 
 // =============================
-// REVEAL FRAGMENT 2
+// RÉVÉLATION FRAGMENT 2
 // =============================
 
 function revealFragment2() {
+
   if (fragment2Shown) return;
+
   fragment2Shown = true;
 
-  const container = document.querySelector(".container");
-  if (!container) return;
+  console.log("FRAGMENT 2 TRIGGERED");
 
+  const container = document.querySelector(".container");
+
+  if (!container) {
+    console.error("container introuvable");
+    return;
+  }
+
+  // création wrapper
   const wrapper = document.createElement("div");
+
   wrapper.innerHTML = fragment2;
 
   const node = wrapper.firstElementChild;
 
+  // animation initiale
   node.style.opacity = "0";
-  node.style.transform = "translateY(12px)";
+  node.style.transform = "translateY(20px)";
+  node.style.transition = "all 0.8s ease";
 
+  // ajout DOM
   container.appendChild(node);
 
+  // animation apparition
   requestAnimationFrame(() => {
-    node.style.transition = "0.8s ease";
     node.style.opacity = "1";
     node.style.transform = "translateY(0)";
-  console.log("FRAGMENT 2 TRIGGERED");
   });
 
+  // démarrage glitch
   startGlitch(node);
 }
 
@@ -107,25 +136,35 @@ function revealFragment2() {
 // =============================
 
 function startGlitch(root) {
+
   const paragraphs = root.querySelectorAll("p");
 
   const interval = setInterval(() => {
+
+    // sécurité suppression
     if (!document.body.contains(root)) {
       clearInterval(interval);
       return;
     }
 
     paragraphs.forEach(p => {
-      if (Math.random() > 0.985) {
-        const old = p.style.opacity;
 
-        p.style.opacity = "0.35";
+      // faible chance de glitch
+      if (Math.random() > 0.985) {
+
+        const oldOpacity = p.style.opacity;
+        const oldTransform = p.style.transform;
+
+        p.style.opacity = "0.25";
+        p.style.transform = "translateX(2px)";
 
         setTimeout(() => {
-          p.style.opacity = old || "";
+          p.style.opacity = oldOpacity || "";
+          p.style.transform = oldTransform || "";
         }, 120);
       }
+
     });
 
-  }, 400);
+  }, 350);
 }

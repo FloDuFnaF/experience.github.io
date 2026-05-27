@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>L-17 // VALIDATION</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="captcha-page">
+
+<div class="captcha-box">
+
+  <div class="captcha-header">
+    <h1>VÉRIFICATION D’ARCHIVE</h1>
+    <p>intégrité du système en cours de contrôle</p>
+  </div>
+
+  <div class="captcha-timer">
+    <p>STABILISATION</p>
+    <h2 id="timer">00:08</h2>
+  </div>
+
+  <div class="captcha-content">
+
+    <p class="captcha-instruction">
+      IDENTIFIER LA SORTIE VALIDE
+    </p>
+
+    <div class="captcha-options">
+
+      <button onclick="validate(true)">
+        ░'ar▓hi░e est s▓ab▓e
+      </button>
+
+      <button onclick="validate(true)">
+        L'a▓░hive e▓t ░table
+      </button>
+
+      <button onclick="validate(true)">
+        L'a░ch▓ve es▓ st▓b░e
+      </button>
+
+    </div>
+
+    <p id="result" class="captcha-result"></p>
+
+  </div>
+
+</div>
+
+<script src="captcha.js"></script>
+
+</body>
+</html>

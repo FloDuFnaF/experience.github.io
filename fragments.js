@@ -12,9 +12,12 @@ function checkPass(id) {
     error.style.color = "#6CFF6C";
     error.innerText = "accès validé";
 
-    // petite latence pour effet ARG (optionnel mais stylé)
     setTimeout(() => {
-      window.location.href = `fragment${id}.html`;
+      if (id === 2) {
+        window.location.href = "https://flodufnaf.github.io/experience.github.io/PSFRAG2";
+      } else {
+        window.location.href = `fragment${id}.html`;
+      }
     }, 500);
 
   } else {

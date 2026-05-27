@@ -3,52 +3,113 @@
 <head>
 <meta charset="UTF-8">
 <title>L-17 // VALIDATION</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  color: #eaeaea;
+}
+
+.captcha-box {
+  width: 380px;
+  padding: 26px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+button {
+  padding: 10px;
+  margin-top: 6px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: rgba(255,255,255,0.3);
+}
+
+#timer {
+  font-family: monospace;
+  text-align: center;
+}
+
+#result {
+  text-align: center;
+  font-size: 12px;
+}
+</style>
+
 </head>
 
-<body class="captcha-page">
+<body>
 
 <div class="captcha-box">
 
-  <div class="captcha-header">
-    <h1>VÉRIFICATION D’ARCHIVE</h1>
-    <p>intégrité du système en cours de contrôle</p>
-  </div>
+  <h2>VÉRIFICATION SYSTÈME</h2>
 
-  <div class="captcha-timer">
-    <p>STABILISATION</p>
-    <h2 id="timer">00:08</h2>
-  </div>
+  <div id="timer">00:08</div>
 
-  <div class="captcha-content">
+  <p>IDENTIFIER LA SORTIE VALIDE</p>
 
-    <p class="captcha-instruction">
-      IDENTIFIER LA SORTIE VALIDE
-    </p>
+  <button onclick="validate(true)">
+    ░'ar▓hi░e est s▓ab▓e
+  </button>
 
-    <div class="captcha-options">
+  <button onclick="validate(false)">
+    L'a▓░hive e▓t ░table
+  </button>
 
-      <button onclick="validate(true)">
-        ░'ar▓hi░e est s▓ab▓e
-      </button>
+  <button onclick="validate(false)">
+    L'a░ch▓ve es▓ st▓b░e
+  </button>
 
-      <button onclick="validate(true)">
-        L'a▓░hive e▓t ░table
-      </button>
-
-      <button onclick="validate(true)">
-        L'a░ch▓ve es▓ st▓b░e
-      </button>
-
-    </div>
-
-    <p id="result" class="captcha-result"></p>
-
-  </div>
+  <p id="result"></p>
 
 </div>
 
-<script src="captcha.js"></script>
+<script>
+let time = 8;
+const timerEl = document.getElementById("timer");
+
+const interval = setInterval(() => {
+  time--;
+
+  timerEl.innerText = "00:0" + Math.max(time, 0);
+
+  if (time <= 0) {
+    clearInterval(interval);
+    window.location.href = "https://flodufnaf.github.io/experience.github.io/accueil/";
+  }
+}, 1000);
+
+function validate(correct) {
+  const result = document.getElementById("result");
+
+  if (correct) {
+    result.innerText = "VALIDÉ";
+    result.style.color = "#6CFF6C";
+
+    setTimeout(() => {
+      window.location.href = "https://flodufnaf.github.io/experience.github.io/PSFRAG2/home";
+    }, 500);
+  } else {
+    result.innerText = "ERREUR";
+    result.style.color = "#FF4C4C";
+  }
+}
+</script>
 
 </body>
 </html>

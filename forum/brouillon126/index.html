@@ -10,6 +10,7 @@
 
   <div class="container">
 
+    <!-- ===================== DOCUMENT PRINCIPAL ===================== -->
     <div class="card fragment-card">
 
       <h2>DOCUMENT INTERNE // BROUILLON 126</h2>
@@ -36,11 +37,7 @@
       <p><strong>[ÉVALUATION PHYSIQUE]</strong></p>
 
       <p>
-        Sujet masculin, âge estimé : 40–50 ans.
-      </p>
-
-      <p>
-        Signes visibles de fatigue cognitive accrue :
+        Sujet masculin, âge estimé : 40–50 ans. Signes de fatigue cognitive accrue :
         réduction du temps de réponse, incohérences mineures dans les rapports,
         usage répété de formulations spéculatives non validées.
       </p>
@@ -58,11 +55,7 @@
       </p>
 
       <p>
-        Tendance à l’hypothèse non contrôlée et remise en question des modèles de stabilité archivistique.
-      </p>
-
-      <p>
-        Corrélation abusive entre observation et modification des données.
+        Remise en question des modèles de stabilité archivistique et corrélation abusive entre observation et modification des données.
       </p>
 
       <p>
@@ -78,7 +71,7 @@
       </p>
 
       <p>
-        Le protocole L-17 reste défini comme un système d’archivage et de simulation passive.
+        Le protocole L-17 reste un système d’archivage et de simulation passive.
       </p>
 
       <p>
@@ -90,8 +83,7 @@
       <p><strong>[REMARQUE SUPPLÉMENTAIRE]</strong></p>
 
       <p>
-        Les rapports récents montrent des variations internes de formulation,
-        incohérences de référence temporelle et mentions récurrentes d’un état “non stable”.
+        Variations internes de formulation, incohérences temporelles et mentions d’un état instable des archives.
       </p>
 
       <p>
@@ -103,15 +95,15 @@
       <p><strong>[CONCLUSION]</strong></p>
 
       <p>
-        Le protocole L-17 ne présente aucune anomalie structurelle.
+        Aucune anomalie structurelle détectée.
       </p>
 
       <p>
-        Les déviations observées sont liées à l’interprétation humaine des données.
+        Les déviations sont liées à l’interprétation humaine des données.
       </p>
 
       <p>
-        Il est recommandé de limiter l’autonomie analytique de la supervision Δ-3.
+        Limiter l’autonomie analytique de la supervision Δ-3.
       </p>
 
       <br>
@@ -122,7 +114,45 @@
 
     </div>
 
+    <!-- ===================== POST-SCRIPTUM ===================== -->
+    <div class="card fragment-card">
+
+      <h2>POST-SCRIPTUM</h2>
+
+      <p style="color:#ff3b3b; text-shadow:0 0 6px rgba(255,0,0,0.4);">
+        Ils ont tort. "MALADE".
+      </p>
+
+      <input type="password" id="keyInput" placeholder="Clé de décryptage">
+
+      <button onclick="checkKey()">Valider</button>
+
+      <p id="result" style="margin-top:15px; opacity:0;"></p>
+
+    </div>
+
   </div>
+
+  <!-- ===================== SCRIPT ===================== -->
+  <script>
+    function checkKey() {
+      const input = document.getElementById("keyInput").value;
+      const result = document.getElementById("result");
+
+      if (input === "MALADE") {
+        result.style.opacity = "1";
+        result.style.color = "#9be7ff";
+        result.innerHTML =
+          "COMITÉ CENTRAL // NOTE INTERNE<br><br>" +
+          "Le Dr Élias Varennes mentionne un nouveau MOT-CLÉ D’ACCÈS : <strong>SIGNAL-NULL</strong>.<br><br>" +
+          "Les transmissions sont désormais partiellement censurées.";
+      } else {
+        result.style.opacity = "1";
+        result.style.color = "#ff4b4b";
+        result.innerHTML = "clé invalide";
+      }
+    }
+  </script>
 
 </body>
 </html>

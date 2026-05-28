@@ -129,9 +129,44 @@
         FIN DE TRANSMISSION
       </p>
 
+      <!-- NOUVEAU BLOC D’ACCÈS -->
+      <div class="access-box">
+
+        <p class="access-title">
+          ACCÈS RÉSIDUEL // CLÉ DÉTECTÉE
+        </p>
+
+        <input
+          type="password"
+          id="archiveKey"
+          placeholder="ACCESS_KEY"
+        >
+
+        <button onclick="checkKey()">
+          DÉVERROUILLER L’ACCÈS
+        </button>
+
+        <p id="keyError" class="error"></p>
+
+      </div>
+
     </div>
 
   </div>
+
+  <script>
+    function checkKey() {
+      const value = document.getElementById("archiveKey").value;
+      const error = document.getElementById("keyError");
+
+      if (value === "ACCESS_KEY:SRPMG") {
+        window.location.href =
+          "https://flodufnaf.github.io/experience.github.io/L17-comms/hidden/je/";
+      } else {
+        error.innerText = "clé invalide";
+      }
+    }
+  </script>
 
 </body>
 </html>

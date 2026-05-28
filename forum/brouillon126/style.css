@@ -1,0 +1,297 @@
+/* =========================
+   RESET GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: #eaeaea;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================
+   NOISE / GLITCH GLOBAL
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: noiseMove 0.25s infinite;
+}
+
+@keyframes noiseMove {
+  0% { transform: translate(0,0); }
+  25% { transform: translate(-1px,1px); }
+  50% { transform: translate(1px,-1px); }
+  75% { transform: translate(1px,1px); }
+  100% { transform: translate(0,0); }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.02);
+  opacity: 0;
+  animation: flicker 6s infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 0; }
+  50% { opacity: 0.05; }
+}
+
+/* =========================
+   GLOBAL CONTAINER
+========================= */
+
+.container {
+  width: 100%;
+  padding: 80px 20px;
+}
+
+/* =========================
+   CARDS SYSTEM
+========================= */
+
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0.85;
+}
+
+.card p {
+  font-size: 13px;
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* =========================
+   FORMS / FOLDERS
+========================= */
+
+.folder {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.25);
+  font-family: ui-monospace, monospace;
+}
+
+.folder summary {
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.folder p {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* =========================
+   LOGIN PAGE (CENTRÉ PROPRE)
+========================= */
+
+body.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 320px;
+  padding: 32px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.login-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.05), transparent);
+  animation: scan 3.5s linear infinite;
+  opacity: 0.2;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.login-box input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  outline: none;
+}
+
+.login-box button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #1a1f2b, #0f131c);
+  color: white;
+
+  transition: 0.2s;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FORUM PAGE (CLEAN CENTRÉ)
+========================= */
+
+body.forum-page {
+  display: block;
+}
+
+.forum-page .container {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* threads */
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.thread-card {
+  padding: 16px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(10px);
+  transition: 0.2s ease;
+}
+
+.thread-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.thread-card h2 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.thread-card p {
+  font-size: 13px;
+  opacity: 0.6;
+  margin-top: 6px;
+}
+
+/* =========================
+   FRAGMENTS L-17
+========================= */
+
+body.fragment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fragment .container {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.fragment-card {
+  max-width: 420px;
+}
+
+/* glitch text */
+.cipher-text {
+  font-family: ui-monospace, monospace;
+  letter-spacing: 4px;
+  animation: flicker 3s infinite;
+}
+
+/* hidden */
+.hidden {
+  display: none !important;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.error {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+::selection {
+  background: rgba(255,255,255,0.15);
+}

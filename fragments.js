@@ -20,6 +20,14 @@ function checkPass(id) {
       }
     }, 500);
 
+    setTimeout(() => {
+      if (id === 3) {
+        window.location.href = "https://flodufnaf.github.io/experience.github.io/SNFRAG3/accueil";
+      } else {
+        window.location.href = `fragment${id}.html`;
+      }
+    }, 500);
+
   } else {
     error.style.color = "#FF4C4C";
     error.innerText = "mot de passe incorrect";

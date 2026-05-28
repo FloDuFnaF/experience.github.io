@@ -1,0 +1,307 @@
+/* =========================
+   RESET GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: #eaeaea;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* =========================
+   BACKGROUND UNIQUE (SAFE + L-17 STYLE)
+========================= */
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0c0f14, #050507);
+  position: relative;
+}
+
+/* bruit léger (TRÈS FAIBLE) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.02;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* flash ultra subtil (pas agressif) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.015);
+  opacity: 0;
+  animation: flicker 8s infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.03; }
+}
+
+/* =========================
+   LAYOUT GLOBAL
+========================= */
+
+.container {
+  width: 100%;
+  padding: 80px 20px;
+}
+
+/* =========================
+   CARD SYSTEM (FORUM + FRAGMENTS)
+========================= */
+
+.card,
+.thread-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.2s ease;
+}
+
+.card:hover,
+.thread-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* =========================
+   FORUM PAGE
+========================= */
+
+.forum-page .forum-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.forum-header {
+  margin-bottom: 20px;
+}
+
+.forum-header h1 {
+  font-size: 32px;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.forum-header p {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-top: 8px;
+}
+
+.forum-warning {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 11px;
+  opacity: 0.35;
+  font-family: ui-monospace, monospace;
+}
+
+/* THREADS */
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.thread-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  opacity: 0.5;
+  font-family: ui-monospace, monospace;
+}
+
+.thread-card h2 {
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+.thread-card p {
+  font-size: 13px;
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+.thread-link {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.7;
+  text-decoration: none;
+  color: white;
+}
+
+.thread-link:hover {
+  opacity: 1;
+}
+
+/* états */
+.thread-card.locked {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.thread-card.deleted {
+  opacity: 0.25;
+  font-style: italic;
+}
+
+/* =========================
+   LOGIN PAGE (CENTRÉ PROPRE)
+========================= */
+
+body.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  width: 320px;
+  padding: 32px;
+
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* inputs */
+.login-box input {
+  padding: 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  outline: none;
+}
+
+.login-box button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #1a1f2b, #0f131c);
+  color: white;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FRAGMENTS (L-17)
+========================= */
+
+body.fragment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fragment .container {
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fragment-card {
+  max-width: 420px;
+}
+
+.cipher-text {
+  font-family: ui-monospace, monospace;
+  letter-spacing: 3px;
+  opacity: 0.9;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+::selection {
+  background: rgba(255,255,255,0.12);
+}
+
+.next-thread-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 10px 16px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.2s ease;
+
+  z-index: 999;
+}
+
+.next-thread-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.18);
+
+  transform: translateY(-2px);
+
+  color: white;
+}

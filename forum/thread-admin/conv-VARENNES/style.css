@@ -271,3 +271,37 @@ body.fragment {
 ::selection {
   background: rgba(255,255,255,0.12);
 }
+
+.next-thread-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 10px 16px;
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.2s ease;
+
+  z-index: 999;
+}
+
+.next-thread-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.18);
+
+  transform: translateY(-2px);
+
+  color: white;
+}

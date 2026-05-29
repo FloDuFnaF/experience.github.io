@@ -1,0 +1,336 @@
+/* =========================
+   RESET GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: #d7dde6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0a0f18, #05070c);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================
+   NOISE / AMBIANCE FROIDE
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.025;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(180,200,255,0.02);
+  opacity: 0;
+  animation: flicker 8s infinite;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0%,100% { opacity: 0; }
+  50% { opacity: 0.04; }
+}
+
+/* =========================
+   CONTAINER PLUS LARGE
+========================= */
+
+.container {
+  width: 100%;
+  padding: 80px 40px;
+}
+
+/* =========================
+   CARDS SYSTEM
+========================= */
+
+.card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(200,220,255,0.10);
+  border-radius: 14px;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(200,220,255,0.22);
+}
+
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.85;
+}
+
+.card p {
+  font-size: 13px;
+  opacity: 0.65;
+  line-height: 1.5;
+}
+
+/* =========================
+   FORUM (TABLEAU PLUS LARGE)
+========================= */
+
+body.forum-page .forum-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.thread-card {
+  width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,220,255,0.10);
+
+  backdrop-filter: blur(10px);
+  transition: 0.2s ease;
+}
+
+.thread-card:hover {
+  border-color: rgba(200,220,255,0.2);
+  transform: translateY(-1px);
+}
+
+/* header thread */
+.thread-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* texte */
+.thread-card p {
+  font-size: 13px;
+  opacity: 0.65;
+  margin: 6px 0;
+  line-height: 1.45;
+}
+
+/* =========================
+   FORMS / FOLDERS
+========================= */
+
+.folder {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(200,220,255,0.10);
+  background: rgba(0,0,0,0.25);
+  font-family: ui-monospace, monospace;
+}
+
+.folder summary {
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.folder p {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+body.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  width: 340px;
+  padding: 32px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,220,255,0.10);
+
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.login-box input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(200,220,255,0.10);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  outline: none;
+}
+
+.login-box button {
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #151c2a, #0f141d);
+  color: white;
+  transition: 0.2s;
+}
+
+.login-box button:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   FRAGMENTS
+========================= */
+
+body.fragment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fragment .container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.fragment-card {
+  max-width: 600px;
+}
+
+/* texte système */
+.cipher-text {
+  font-family: ui-monospace, monospace;
+  letter-spacing: 3px;
+  opacity: 0.85;
+}
+
+/* utilitaires */
+.hidden {
+  display: none !important;
+}
+
+.error {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+::selection {
+  background: rgba(180,200,255,0.15);
+}
+
+/* =========================
+   POST-SCRIPTUM INPUT FIX
+========================= */
+
+.fragment-card input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+
+  margin-top: 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.35);
+
+  color: #eaeaea;
+  font-family: ui-monospace, monospace;
+
+  outline: none;
+
+  transition: 0.2s ease;
+}
+
+.fragment-card input[type="password"]:focus {
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(0,0,0,0.5);
+}
+
+/* =========================
+   BUTTON FIX (POST-SCRIPTUM)
+========================= */
+
+.fragment-card button {
+  width: 100%;
+  margin-top: 12px;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+  border: none;
+
+  cursor: pointer;
+
+  background: linear-gradient(90deg, #1a1f2b, #0f131c);
+  color: #eaeaea;
+
+  font-family: ui-sans-serif, system-ui;
+  letter-spacing: 1px;
+
+  transition: 0.2s ease;
+}
+
+.fragment-card button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #2a3142, #141a25);
+}
+
+/* =========================
+   RESULT TEXT (révélation comité)
+========================= */
+
+#result {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  transition: 0.3s ease;
+}

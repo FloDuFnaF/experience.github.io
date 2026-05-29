@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>L17 // ARCHIVE FINALE</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: radial-gradient(circle at top, #05070a, #000);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+      color: #eaeaea;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .container {
+      width: min(800px, 90%);
+      padding: 40px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(10px);
+
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+
+      animation: flicker 4s infinite;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff3b3b;
+      letter-spacing: 6px;
+
+      text-shadow: 0 0 12px rgba(255,0,0,0.4);
+      animation: glitch 2s infinite;
+      margin-bottom: 30px;
+    }
+
+    .block {
+      margin-bottom: 25px;
+      line-height: 1.7;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .separator {
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 25px 0;
+    }
+
+    .title {
+      color: #ff3b3b;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .highlight {
+      color: #9be7ff;
+    }
+
+    .quote {
+      font-style: italic;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+
+    .end {
+      text-align: center;
+      margin-top: 40px;
+      color: #ff3b3b;
+      letter-spacing: 4px;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-1px, 0px); }
+      80% { transform: translate(1px, 1px); }
+      100% { transform: translate(0); }
+    }
+
+    @keyframes flicker {
+      0%,100% { opacity: 1; }
+      50% { opacity: 0.75; }
+      52% { opacity: 1; }
+      55% { opacity: 0.5; }
+      60% { opacity: 1; }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>PROJET L-17 // ARCHIVE FINALE</h1>
+
+    <div class="block">
+      Si vous lisez ceci, cela signifie que vous avez atteint la dernière couche du protocole.<br><br>
+      Félicitations.
+    </div>
+
+    <div class="block">
+      Ce projet est le résultat de plusieurs jours de conception et d’expérimentation.<br>
+      C’est un système que je voulais réaliser depuis longtemps, et qui a enfin pu prendre forme.<br><br>
+      Merci d’avoir persévéré jusqu’au bout.
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="block">
+      <div class="title">COLLABORATEURS :</div>
+
+      ROUCOU Florian — Chef du projet L-17<br>
+      Romain — Design graphique / réalisation de l’affiche officielle<br>
+
+      <div class="quote">
+        Merci pour la qualité du travail et le temps consacré au projet.
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="block">
+      <div class="title">RETOURS / CONTACT :</div>
+
+      Si vous souhaitez donner votre avis sur le projet L-17 :<br>
+      <span class="highlight">@flodufnaf (Instagram)</span>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="block">
+      <div class="title">RÉCOMPENSE (OPTIONNELLE) :</div>
+
+      Les trois premiers utilisateurs ayant complété le protocole peuvent se présenter à la Vie Scolaire et annoncer la phrase :<br><br>
+
+      <span class="highlight">"Le projet L-17 est finalement clos, et supprimé."</span><br><br>
+
+      Une récompense leur sera remise.
+    </div>
+
+    <div class="end">
+      [ PROJET L-17 // TERMINÉ ]
+    </div>
+
+  </div>
+
+</body>
+</html>

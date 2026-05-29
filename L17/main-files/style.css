@@ -1,35 +1,61 @@
 /* =========================
-   BASE DARK + INSTABLE
+   GLOBAL FIX IMPORTANT (fond plein écran)
 ========================= */
+
+html, body {
+  height: 100%;
+  min-height: 100vh;
+}
 
 body.mainfiles {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-  background: radial-gradient(circle at top, #07090d, #020203);
+  background: radial-gradient(circle at top, #070a10, #020203);
   color: #eaeaea;
   overflow-x: hidden;
   position: relative;
 }
 
-/* flicker global */
+/* FORCE le fond à couvrir toute la page */
 body.mainfiles::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(255,255,255,0.02);
-  animation: flicker 4s infinite;
-  pointer-events: none;
+  background: radial-gradient(circle at top, #0c0f14, #020203);
+  z-index: -2;
 }
 
-/* noise glitch */
+/* =========================
+   GLITCH GLOBAL OVERLAY
+========================= */
+
 .glitch-overlay {
   position: fixed;
   inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  animation: noise 0.2s infinite;
+  background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.04;
+  animation: flicker 3s infinite;
   pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.03; }
+  50% { opacity: 0.07; transform: translateX(1px); }
+}
+
+/* léger scan glitch */
+.glitch-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.02);
+  animation: scan 4s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 /* =========================
@@ -37,28 +63,36 @@ body.mainfiles::before {
 ========================= */
 
 .container {
-  padding: 80px 40px;
+  padding: 80px clamp(20px, 6vw, 120px);
+  position: relative;
+  z-index: 10;
 }
 
 .top {
   margin-bottom: 40px;
 }
 
-.subtitle {
-  opacity: 0.4;
-  font-size: 12px;
-  letter-spacing: 2px;
+.glitch-title {
+  font-size: 56px;
+  letter-spacing: 6px;
+  margin: 0;
+  position: relative;
+  animation: glitchText 2s infinite;
 }
 
-/* =========================
-   GLITCH TITLE
-========================= */
+@keyframes glitchText {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(0); }
+  100% { transform: translate(0); }
+}
 
-.glitch-title {
-  font-size: 48px;
-  letter-spacing: 6px;
-  position: relative;
-  animation: glitch 2s infinite;
+.subtitle {
+  opacity: 0.5;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-top: 8px;
 }
 
 /* =========================
@@ -72,106 +106,75 @@ body.mainfiles::before {
 }
 
 /* =========================
-   CARDS
+   CARD (modern + sombre)
 ========================= */
 
 .card {
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.025);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 14px;
 
   padding: 18px;
-
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 
-  backdrop-filter: blur(10px);
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 
   transition: 0.25s ease;
+  min-height: 220px;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: rgba(255,255,255,0.2);
 }
 
-/* broken card */
-.card.broken {
-  opacity: 0.6;
-  border: 1px solid rgba(255, 80, 80, 0.2);
+.card h2 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  opacity: 0.85;
 }
 
-.error-text {
-  color: rgba(255, 80, 80, 0.9);
-  font-family: ui-monospace, monospace;
-  animation: flicker 1.5s infinite;
+.card p {
+  font-size: 13px;
+  opacity: 0.6;
+  line-height: 1.5;
 }
 
 /* =========================
-   BUTTONS
+   BUTTONS (clean + system style)
 ========================= */
 
-button {
+.card button {
+  margin-top: auto;
   padding: 10px;
   border-radius: 10px;
-  border: none;
 
-  background: linear-gradient(90deg, #121621, #0a0d14);
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(90deg, #151a24, #0f131c);
   color: white;
 
   cursor: pointer;
-
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
 
-button:hover {
-  transform: scale(1.02);
+.card button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.2);
 }
 
-/* disabled corrupted */
-button:disabled {
-  opacity: 0.3;
+/* =========================
+   CARD BLOQUÉE
+========================= */
+
+.card.disabled {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.card.disabled button {
   cursor: not-allowed;
-}
-
-/* =========================
-   GLITCH EFFECTS
-========================= */
-
-@keyframes flicker {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.05; }
-}
-
-@keyframes noise {
-  0% { transform: translate(0,0); }
-  25% { transform: translate(-1px,1px); }
-  50% { transform: translate(1px,-1px); }
-  75% { transform: translate(1px,1px); }
-  100% { transform: translate(0,0); }
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-1px, 1px); }
-  40% { transform: translate(1px, -1px); }
-  60% { transform: translate(-1px, 0px); }
-  80% { transform: translate(1px, 1px); }
-  100% { transform: translate(0); }
-}
-
-/* =========================
-   GLOBAL GLITCH SHIFT
-========================= */
-
-body.mainfiles {
-  animation: globalShift 6s infinite;
-}
-
-@keyframes globalShift {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(0.85) contrast(1.1); }
+  opacity: 0.5;
 }

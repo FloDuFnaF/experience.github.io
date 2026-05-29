@@ -50,70 +50,76 @@
     let index = 0;
 
     function showNext() {
-      if (index < messages.length - 1) {
-        messages[index].classList.remove("active");
-        index++;
-        messages[index].classList.add("active");
+      // enlève message actuel
+      messages[index].classList.remove("active");
 
+      index++;
+
+      // encore des messages
+      if (index < messages.length) {
+        messages[index].classList.add("active");
         setTimeout(showNext, 5000);
       } else {
-        messages[index].classList.remove("active");
-        setTimeout(showFinal, 1500);
+        // transition finale propre
+        setTimeout(() => {
+          finalScreen.classList.add("show");
+        }, 1200);
       }
     }
 
-    function showFinal() {
-      finalScreen.classList.add("show");
-    }
+    // DÉMARRAGE AUTOMATIQUE (IMPORTANT)
+    window.addEventListener("load", () => {
+      messages[0].classList.add("active");
+      setTimeout(showNext, 5000);
+    });
 
     function startDeletion() {
       const log = document.getElementById("log");
 
-    const steps = [
-      "Suppression de l'archive LCLLANET...",
-      "Accès aux fichiers L-17...",
-      "Connexion aux couches profondes...",
-      "Désactivation des modules adaptatifs...",
-      "Blocage des routines de reconstruction...",
-      "Contournement des protections internes...",
-      "Accès ROOT obtenu",
-      "Purge du protocole L-17 en cours...",
-      "Système : instabilité détectée",
-      "Réécriture des segments mémoire...",
-      "ÉCRASEMENT DES STRUCTURES ACTIVES...",
-      "L-17 : état fragmenté",
-      "Suppression complète en progression...",
-      "PROTOCOLE L-17 : TERMINÉ"
-    ];
-  
-    let i = 0;
-  
-    const interval = setInterval(() => {
-      if (i < steps.length) {
-        const line = document.createElement("div");
-  
-        line.textContent = steps[i];
-  
-        // effet progression (plus on avance, plus c'est "stable")
-        if (i < 4) line.style.color = "#ff4b4b";
-        else if (i < 9) line.style.color = "#ffb84b";
-        else line.style.color = "#9be7ff";
-  
-        log.appendChild(line);
-        i++;
-      } else {
-        clearInterval(interval);
-  
-        const final = document.createElement("div");
-        final.style.color = "#6CFF8F";
-        final.style.marginTop = "12px";
-        final.style.fontWeight = "bold";
-        final.textContent = "L-17 A ÉTÉ SUPPRIMÉ AVEC SUCCÈS.";
-  
-        log.appendChild(final);
-      }
-    }, 800);
-  }
+      const steps = [
+        "Suppression de l'archive LCLLANET...",
+        "Accès aux fichiers L-17...",
+        "Connexion aux couches profondes...",
+        "Désactivation des modules adaptatifs...",
+        "Blocage des routines de reconstruction...",
+        "Contournement des protections internes...",
+        "Accès ROOT obtenu",
+        "Purge du protocole L-17 en cours...",
+        "Système : instabilité détectée",
+        "Réécriture des segments mémoire...",
+        "ÉCRASEMENT DES STRUCTURES ACTIVES...",
+        "L-17 : état fragmenté",
+        "Suppression complète en progression...",
+        "PROTOCOLE L-17 : TERMINÉ"
+      ];
+
+      let i = 0;
+
+      const interval = setInterval(() => {
+        if (i < steps.length) {
+          const line = document.createElement("div");
+          line.textContent = steps[i];
+
+          // progression visuelle
+          if (i < 4) line.style.color = "#ff4b4b";
+          else if (i < 9) line.style.color = "#ffb84b";
+          else line.style.color = "#9be7ff";
+
+          log.appendChild(line);
+          i++;
+        } else {
+          clearInterval(interval);
+
+          const final = document.createElement("div");
+          final.style.color = "#6CFF8F";
+          final.style.marginTop = "12px";
+          final.style.fontWeight = "bold";
+          final.textContent = "L-17 A ÉTÉ SUPPRIMÉ AVEC SUCCÈS.";
+
+          log.appendChild(final);
+        }
+      }, 800);
+    }
   </script>
 
 </body>

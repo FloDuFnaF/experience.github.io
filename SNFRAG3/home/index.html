@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>L-17 // NOEUD D’ACCÈS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home">
+
+<!-- OVERLAY SYSTEME -->
+<div class="system-overlay">
+  <div class="sys-left">L-17 / canal secondaire</div>
+  <div class="sys-center">connexion fragmentée // lecture partielle</div>
+</div>
+
+<div class="hidden-note">
+  les interfaces affichées ne correspondent pas à la structure réelle du système
+</div>
+
+<div class="noise"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1 class="glitch">L-17</h1>
+    <p class="subtitle">nœud d’accès // couches non synchronisées</p>
+  </header>
+
+  <!-- GRILLE PRINCIPALE -->
+  <section class="grid">
+
+    <!-- ===================== L-17 ACCESS ===================== -->
+    <div class="card">
+
+      <h2 style="color:#ff3b3b; text-shadow:0 0 6px rgba(255,0,0,0.4); animation: glitch 1.5s infinite;">
+        L-17
+      </h2>
+
+      <input type="password" id="l17Key" placeholder="clé d’accès">
+
+      <button onclick="checkL17()">
+        Déverrouiller
+      </button>
+
+      <p id="l17Result" class="error"></p>
+
+    </div>
+
+    <!-- ===================== ARCHIVES LCLLANET ===================== -->
+    <div class="card">
+
+      <h2>ARCHIVES LCLLANET</h2>
+
+      <p>
+        snapshots historiques du protocole L-17.
+        certaines sections du comité contiennent des données classifiées non accessibles au public.
+      </p>
+
+      <button onclick="window.location.href='https://flodufnaf.github.io/experience.github.io/LCLLANET/sauvegarde-comite1'">
+        Accéder aux archives
+      </button>
+
+      <p class="error"></p>
+
+    </div>
+
+  </section>
+
+  <!-- BLOC D’ACCÈS -->
+  <div class="card system-log">
+
+    <h2>CLÉ D’ACCÈS PARTIELLE</h2>
+
+    <p>
+      POST-STRUCTURE // signal détecté dans les couches basses du système
+    </p>
+
+    <p>
+      Δ-3 // corrélation active entre consultation et variation des données
+    </p>
+
+    <p>
+      note : certaines entrées semblent réagir à l’observation
+    </p>
+
+  </div>
+
+  <footer>
+    <p>accès restreint // surveillance passive</p>
+  </footer>
+
+</div>
+
+<!-- ===================== SCRIPT L-17 ===================== -->
+<script>
+function checkL17() {
+  const input = document.getElementById("l17Key").value;
+  const result = document.getElementById("l17Result");
+
+  if (input === "TESTING KEY") {
+    window.location.href =
+      "https://flodufnaf.github.io/experience.github.io/forum/testing-forum";
+  } else {
+    result.style.opacity = "1";
+    result.style.color = "#ff4b4b";
+    result.innerText = "clé invalide";
+  }
+}
+</script>
+
+</body>
+</html>

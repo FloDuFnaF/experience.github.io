@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>L17 // MERCI</title>
+
+  <style>
+
+    body {
+      margin: 0;
+      height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+
+      background: radial-gradient(circle at top, #05070a, #000);
+
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    /* bruit écran */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+    }
+
+    /* texte */
+    .merci {
+      color: #ff3b3b;
+
+      font-size: 48px;
+      letter-spacing: 8px;
+
+      text-shadow:
+        0 0 10px rgba(255,0,0,0.5),
+        0 0 20px rgba(255,0,0,0.2);
+
+      animation:
+        glitch 1.5s infinite,
+        flicker 3s infinite;
+    }
+
+    /* bouton bas */
+    .credits-btn {
+      position: absolute;
+      bottom: 40px;
+
+      padding: 12px 24px;
+
+      border: 1px solid rgba(255,59,59,0.4);
+      border-radius: 8px;
+
+      background: rgba(255,255,255,0.03);
+
+      color: #ff6b6b;
+      text-decoration: none;
+
+      letter-spacing: 3px;
+      font-size: 12px;
+
+      transition: 0.25s;
+      backdrop-filter: blur(4px);
+    }
+
+    .credits-btn:hover {
+      background: rgba(255,59,59,0.08);
+      border-color: #ff3b3b;
+
+      transform: translateY(-2px);
+
+      box-shadow: 0 0 12px rgba(255,0,0,0.2);
+    }
+
+    /* glitch */
+    @keyframes glitch {
+
+      0% {
+        transform: translate(0);
+      }
+
+      20% {
+        transform: translate(-2px, 1px);
+      }
+
+      40% {
+        transform: translate(2px, -1px);
+      }
+
+      60% {
+        transform: translate(-1px, 0px);
+      }
+
+      80% {
+        transform: translate(1px, 1px);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+
+    /* flicker */
+    @keyframes flicker {
+
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+
+      52% {
+        opacity: 1;
+      }
+
+      55% {
+        opacity: 0.55;
+      }
+
+      60% {
+        opacity: 1;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="merci">
+      Merci.
+    </div>
+
+    <a class="credits-btn"
+       href="https://flodufnaf.github.io/experience.github.io/L17/ENDING/crédits">
+      CRÉDITS
+    </a>
+
+  </div>
+
+</body>
+</html>

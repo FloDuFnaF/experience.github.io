@@ -143,3 +143,26 @@ body::before {
   80% { transform: translate(1px, 1px); }
   100% { transform: translate(0); }
 }
+
+.final-button {
+  display: inline-block;
+
+  padding: 12px 18px;
+  margin-top: 10px;
+
+  border: 1px solid #ff3b3b;
+  background: transparent;
+
+  color: #ff3b3b;
+  text-decoration: none;
+
+  cursor: pointer;
+  letter-spacing: 2px;
+
+  transition: 0.2s;
+}
+
+.final-button:hover {
+  background: rgba(255, 59, 59, 0.1);
+  transform: translateY(-2px);
+}

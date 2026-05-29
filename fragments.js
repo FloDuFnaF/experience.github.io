@@ -22,7 +22,7 @@ function checkPass(id) {
 
     setTimeout(() => {
       if (id === 3) {
-        window.location.href = "https://flodufnaf.github.io/experience.github.io/SNFRAG3/accueil";
+        window.location.href = "https://flodufnaf.github.io/experience.github.io/SNFRAG3/home";
       } else {
         window.location.href = `fragment${id}.html`;
       }

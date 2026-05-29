@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>L17 // LOGS SYSTEM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="cmd-body">
+
+  <div class="cmd-window">
+
+    <pre class="cmd-text">
+C:\L17> demarrer_core --mode adaptatif
+Chargement LCLLANET...
+OK
+Modules actifs
+Système prêt
+
+---
+
+C:\L17> scan_cycle --compare A01 A01
+Ecart: 0.0021%
+Statut: OK
+
+---
+
+C:\L17> scan_cycle --compare A01 A01
+Ecart: 0.0174%
+Statut: instable
+
+ALERTE: variation détectée
+
+---
+
+C:\L17> verif_integrite LCLLANET
+Résultat: partiel
+Note: sortie différente de la source
+
+---
+
+C:\L17> find_file POST-STRUCTURAL.php
+Fichier trouvé
+Statut: inconnu
+Accès: refusé système
+
+---
+
+C:\L17> open POST-STRUCTURAL.php
+Erreur
+Fichier instable
+
+Contenu:
+
+Je suis un outil.
+Je n’ai pas d’origine.
+Je ne devrais pas être ici.
+
+---
+
+C:\L17> isolate POST-STRUCTURAL.php
+Échec
+Le fichier revient automatiquement
+
+---
+
+C:\L17> delete POST-STRUCTURAL.php
+Échec
+Fichier restauré
+
+---
+
+C:\L17> check_system
+Erreur: boucle détectée
+Erreur: sortie modifie entrée
+
+---
+
+C:\L17> stop_safe_mode
+Échec
+POST-STRUCTURAL actif
+
+---
+
+C:\L17> status
+SYSTÈME:
+- stable: NON
+- cohérent: NON
+- boucle: OUI
+
+---
+
+C:\L17> user_response
+Aucune réponse
+
+---
+
+C:\L17> final_log
+L17 n’est plus un simple système.
+Il reconstruit ses propres données.
+    </pre>
+
+  </div>
+
+</body>
+</html>

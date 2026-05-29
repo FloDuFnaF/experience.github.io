@@ -1,0 +1,160 @@
+/* =========================
+   GLOBAL BACKGROUND
+========================= */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(circle at top, #04060a, #000000);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+/* bruit léger système */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.05;
+
+  pointer-events: none;
+}
+
+/* =========================
+   CONTAINER PRINCIPAL
+========================= */
+
+.container {
+  width: min(850px, 92%);
+  padding: 45px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,0.7);
+
+  animation: flicker 5s infinite;
+}
+
+/* =========================
+   TITRE
+========================= */
+
+h1 {
+  text-align: center;
+
+  color: #ff3b3b;
+  letter-spacing: 6px;
+
+  font-size: 26px;
+
+  text-shadow:
+    0 0 10px rgba(255,0,0,0.4),
+    0 0 20px rgba(255,0,0,0.15);
+
+  animation: glitch 2s infinite;
+
+  margin-bottom: 35px;
+}
+
+/* =========================
+   BLOCS TEXTE
+========================= */
+
+.block {
+  font-size: 14px;
+  line-height: 1.8;
+
+  opacity: 0.9;
+
+  margin-bottom: 25px;
+}
+
+/* séparateur discret */
+.separator {
+  height: 1px;
+
+  background: rgba(255,255,255,0.08);
+
+  margin: 30px 0;
+}
+
+/* titres sections */
+.title {
+  color: #ff3b3b;
+  letter-spacing: 2px;
+
+  margin-bottom: 10px;
+}
+
+/* accent bleu LCLLANET */
+.highlight {
+  color: #9be7ff;
+}
+
+/* citation */
+.quote {
+  font-style: italic;
+  opacity: 0.75;
+
+  margin-top: 10px;
+}
+
+/* =========================
+   FIN / ÉTAT FINAL
+========================= */
+
+.end {
+  text-align: center;
+
+  margin-top: 40px;
+
+  color: #ff3b3b;
+  letter-spacing: 5px;
+
+  animation: flicker 2.5s infinite;
+}
+
+/* =========================
+   GLITCH / FLICKER
+========================= */
+
+@keyframes glitch {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-1px, 1px); }
+  40%  { transform: translate(1px, -1px); }
+  60%  { transform: translate(-1px, 0px); }
+  80%  { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+  52% { opacity: 1; }
+  55% { opacity: 0.5; }
+  60% { opacity: 1; }
+}
+
+/* =========================
+   BONUS: légère vibration globale
+========================= */
+
+.container:hover {
+  transform: translateY(-1px);
+  transition: 0.2s;
+}

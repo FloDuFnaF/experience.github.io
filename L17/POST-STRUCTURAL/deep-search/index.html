@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FRAGMENT FINAL // L-17</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="final">
+
+  <div class="final-container">
+
+    <div class="glitch-title">FRAGMENT FINAL</div>
+
+    <p class="desc">
+      Les KEY_ACCESS récupérées dans les fragments précédents doivent être assemblées.
+      <br><br>
+      Format requis : <span class="format">XXXXX-XXXXX-XXXXX</span>
+    </p>
+
+    <input id="code" type="text" placeholder="Clé d’accès globale">
+
+    <button onclick="checkFinal()">Valider</button>
+
+    <p id="result"></p>
+
+  </div>
+
+  <script>
+    function checkFinal() {
+      const value = document.getElementById("code").value.trim();
+      const result = document.getElementById("result");
+
+      // clé finale (à toi de la définir si tu veux la changer)
+      const finalKey = "SIGNAL-NULL-ACCESS-KEY";
+
+      if (value === finalKey) {
+        result.style.color = "#9be7ff";
+        result.innerText = "Accès validé... synchronisation des couches L-17";
+
+        setTimeout(() => {
+          window.location.href = "https://flodufnaf.github.io/experience.github.io/END/";
+        }, 1500);
+
+      } else {
+        result.style.color = "#ff4b4b";
+        result.innerText = "Clé invalide — corruption détectée";
+      }
+    }
+  </script>
+
+</body>
+</html>

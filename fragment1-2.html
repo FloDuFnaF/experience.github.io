@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <title>L-17 // FRAGMENT 1.2</title>
 
-<!-- ✅ CSS OBLIGATOIRE -->
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body class="fragment fragment-12">
@@ -21,7 +19,7 @@
 
     <p class="subtitle-frag">VALIDATION SÉMANTIQUE REQUISE</p>
 
-    <p style="opacity:0.7; margin-top:10px;">
+    <p class="instruction">
       DÉCODE LE SIGNAL SUIVANT :
     </p>
 
@@ -29,11 +27,22 @@
       chargement du signal...
     </p>
 
-    <input id="input" autocomplete="off" placeholder="clé de déchiffrement">
-
-    <button onclick="validate()">VALIDER ACCÈS</button>
+    <!-- 🔧 CASE 1 (agrandie) -->
+    <div class="input-block">
+      <input id="input" autocomplete="off" placeholder="clé de déchiffrement">
+      <button onclick="validate()">VALIDER ACCÈS</button>
+    </div>
 
     <p id="error" class="error"></p>
+
+    <!-- 🔧 NOUVEL INDICE -->
+    <div class="hint-box">
+      <p class="hint-title">INDICE DE TRANSFORMATION</p>
+      <p class="hint-text">
+        Les lettres ne sont pas intactes.<br>
+        U → R &nbsp;|&nbsp; H → E &nbsp;|&nbsp; F → C
+      </p>
+    </div>
 
     <!-- LINK BOX -->
     <div class="link-box">
@@ -53,7 +62,6 @@
 
 </div>
 
-<!-- JS DU FRAGMENT -->
 <script src="fragment1-2.js"></script>
 
 </body>

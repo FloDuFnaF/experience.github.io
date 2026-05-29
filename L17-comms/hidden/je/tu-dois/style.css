@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  background: radial-gradient(circle at top, #0b0e13, #050507);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* léger bruit visuel (même vibe que ton système) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* container centré */
+.glitch-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  gap: 30px;
+
+  padding: 40px;
+}
+
+/* texte principal */
+.message {
+  color: #ff3b3b;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+
+  max-width: 900px;
+
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+  animation: flicker 2.5s infinite;
+}
+
+/* message bas plus instable */
+.message.bottom {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* flicker L-17 */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+  52% { opacity: 1; }
+  55% { opacity: 0.4; }
+  60% { opacity: 1; }
+}

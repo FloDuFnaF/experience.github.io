@@ -1,6 +1,7 @@
 body.final {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,6 +9,7 @@ body.final {
   background: radial-gradient(circle at top, #07090d, #020203);
   color: #eaeaea;
   font-family: ui-sans-serif, system-ui;
+
   overflow: hidden;
 }
 
@@ -36,6 +38,11 @@ body.final::before {
   text-align: center;
 
   animation: flicker 4s infinite;
+  width: 420px;
+  padding: 30px;
+
+  position: relative;
+  z-index: 2;
 }
 
 /* titre glitch */

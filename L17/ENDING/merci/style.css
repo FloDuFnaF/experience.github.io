@@ -1,1 +1,168 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
 
+  background: radial-gradient(circle at top, #0b0e13, #050507);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* bruit global */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+/* écran principal */
+.glitch-screen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* ===== MESSAGES ===== */
+.message {
+  position: absolute;
+
+  width: min(700px, 85vw);
+  text-align: center;
+
+  color: #ff3b3b;
+  font-size: 18px;
+  letter-spacing: 2px;
+  line-height: 1.8;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: opacity 1s ease, transform 1s ease;
+
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+}
+
+/* actif */
+.message.active {
+  opacity: 1;
+  transform: translateY(0);
+  animation: flicker 2.5s infinite;
+}
+
+/* flicker L-17 */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+  52% { opacity: 1; }
+  55% { opacity: 0.4; }
+  60% { opacity: 1; }
+}
+
+/* ===== FINAL SCREEN ===== */
+.final-screen {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  opacity: 0;
+  transform: scale(0.98);
+
+  transition: opacity 2s ease, transform 2s ease;
+
+  text-align: center;
+}
+
+.final-screen.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* texte final */
+.final-text {
+  color: #ff3b3b;
+  font-size: 22px;
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+
+  animation: glitch 1.5s infinite;
+}
+
+/* bouton */
+.final-screen button {
+  padding: 12px 18px;
+
+  border: 1px solid #ff3b3b;
+  background: transparent;
+
+  color: #ff3b3b;
+  cursor: pointer;
+
+  letter-spacing: 2px;
+
+  transition: 0.2s;
+}
+
+.final-screen button:hover {
+  background: rgba(255, 59, 59, 0.1);
+  transform: translateY(-2px);
+}
+
+/* logs */
+.log {
+  margin-top: 20px;
+  width: min(500px, 85vw);
+
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+
+  text-align: left;
+  opacity: 0.85;
+}
+
+/* glitch léger */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-1px, 1px); }
+  40% { transform: translate(1px, -1px); }
+  60% { transform: translate(-1px, 0px); }
+  80% { transform: translate(1px, 1px); }
+  100% { transform: translate(0); }
+}
+
+.final-button {
+  display: inline-block;
+
+  padding: 12px 18px;
+  margin-top: 10px;
+
+  border: 1px solid #ff3b3b;
+  background: transparent;
+
+  color: #ff3b3b;
+  text-decoration: none;
+
+  cursor: pointer;
+  letter-spacing: 2px;
+
+  transition: 0.2s;
+}
+
+.final-button:hover {
+  background: rgba(255, 59, 59, 0.1);
+  transform: translateY(-2px);
+}

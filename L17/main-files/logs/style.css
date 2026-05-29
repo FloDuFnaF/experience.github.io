@@ -1,0 +1,97 @@
+/* =========================
+   BASE PAGE CMD
+========================= */
+
+body.cmd-body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at top, #07070a, #020203);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow: hidden;
+}
+
+/* =========================
+   WINDOW CMD
+========================= */
+
+.cmd-window {
+  width: min(900px, 92vw);
+  height: 85vh;
+
+  padding: 20px;
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 0, 0, 0.15);
+
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.08);
+
+  overflow-y: auto;
+  position: relative;
+}
+
+/* scan léger */
+.cmd-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 0, 0, 0.03),
+    transparent
+  );
+  animation: scan 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* =========================
+   TEXT CMD
+========================= */
+
+.cmd-text {
+  margin: 0;
+  color: rgba(255, 60, 60, 0.85);
+  font-size: 12px;
+  line-height: 1.6;
+
+  letter-spacing: 0.5px;
+
+  animation: glitch 2.5s infinite;
+  text-shadow:
+    0 0 6px rgba(255, 0, 0, 0.25),
+    0 0 12px rgba(255, 0, 0, 0.15);
+  white-space: pre-wrap;
+}
+
+/* =========================
+   GLITCH EFFECT
+========================= */
+
+@keyframes glitch {
+  0% { transform: translate(0); opacity: 1; }
+  20% { transform: translate(-0.5px, 0.5px); }
+  40% { transform: translate(0.5px, -0.5px); }
+  60% { transform: translate(-0.3px, 0.3px); opacity: 0.95; }
+  80% { transform: translate(0.3px, -0.3px); }
+  100% { transform: translate(0); opacity: 1; }
+}
+
+/* scrollbar stylée */
+.cmd-window::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cmd-window::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 0, 0.2);
+  border-radius: 10px;
+}

@@ -11,38 +11,42 @@
 
   <div class="forum-container">
 
-    <!-- EN-TÊTE SYSTÈME -->
+    <!-- HEADER SYSTEM -->
     <header class="forum-header">
+
+      <div class="system-badge">LCLLANET // NODE ACCESS</div>
 
       <h1>ARCHIVE NODE</h1>
 
-      <p>
-        interface miroir — accès en lecture seule<br>
-        certaines données peuvent être corrompues
+      <p class="subtitle">
+        Interface miroir sécurisée — lecture seule active<br>
+        Synchronisation partielle des fragments archivés
       </p>
 
-      <span class="forum-warning">
-        dernière synchronisation : 14.09.2019 // canal instable détecté
-      </span>
+      <div class="status-bar">
+        <span>STATUT : CONNECTÉ</span>
+        <span>RÉSEAU : INSTABLE</span>
+        <span>SYNC : 14.09.2019</span>
+      </div>
 
     </header>
 
-    <!-- CONTENU FORUM -->
+    <!-- THREAD LIST -->
     <main class="thread-list">
 
-      <!-- CATÉGORIE -->
-      <div class="thread-card">
+      <!-- CATEGORY -->
+      <div class="thread-card category">
 
         <div class="thread-top">
-          <span class="thread-tag">CATÉGORIE</span>
-          <span class="thread-date">SYSTÈME</span>
+          <span class="thread-tag">CATEGORY // SYSTEM</span>
+          <span class="thread-date">INDEX ROOT</span>
         </div>
 
         <h2>ARCHIVES L-17</h2>
 
         <p>
-          discussions techniques liées aux variations du protocole L-17.
-          observations internes uniquement.
+          Index principal des discussions et fragments liés au protocole L-17.
+          Données en lecture partielle — certaines couches peuvent diverger.
         </p>
 
       </div>
@@ -51,77 +55,75 @@
       <div class="thread-card">
 
         <div class="thread-top">
-          <span class="thread-tag">DISCUSSION</span>
+          <span class="thread-tag">THREAD</span>
           <span class="thread-date">14.09.2019</span>
         </div>
 
-        <h2>variations entre consultations des archives</h2>
+        <h2>Variations entre consultations des archives</h2>
 
         <p>
-          certains utilisateurs rapportent que les données changent légèrement entre deux accès.
+          Observations d’écarts minimes entre accès successifs aux mêmes données.
         </p>
 
-        <a class="thread-link" href="thread1">ouvrir la discussion</a>
+        <a class="thread-link" href="thread1">Ouvrir</a>
 
       </div>
 
-      <!-- THREAD 2 VERROUILLÉ -->
+      <!-- LOCKED -->
       <div class="thread-card locked">
 
         <div class="thread-top">
-          <span class="thread-tag">RESTREINT</span>
+          <span class="thread-tag">RESTRICTED</span>
           <span class="thread-date">03.11.2020</span>
         </div>
 
-        <h2>dérive des instantanés système</h2>
+        <h2>Dérive des instantanés système</h2>
 
         <p>
-          accès restreint par l’administration système
+          Accès verrouillé — autorisation requise niveau supérieur.
         </p>
 
       </div>
 
-      <!-- THREAD 3 IMPORTANT -->
-      <div class="thread-card">
+      <!-- IMPORTANT -->
+      <div class="thread-card highlight">
 
         <div class="thread-top">
           <span class="thread-tag">OBSERVATION</span>
-          <span class="thread-date">??.??.????</span>
+          <span class="thread-date">UNKNOWN</span>
         </div>
 
-        <h2>accès administrateur résiduel détecté ?</h2>
+        <h2>Accès administrateur résiduel détecté</h2>
 
         <p>
-          certaines anciennes interfaces semblent encore répondre.
+          Certaines interfaces héritées répondent encore aux requêtes.
         </p>
 
-        <a class="thread-link" href="thread-admin">
-          consulter l’archive
-        </a>
+        <a class="thread-link" href="thread-admin">Accéder</a>
 
       </div>
 
-      <!-- THREAD 4 CORROMPU -->
-      <div class="thread-card deleted">
+      <!-- CORRUPTED -->
+      <div class="thread-card corrupted">
 
         <div class="thread-top">
-          <span class="thread-tag">CORROMPU</span>
-          <span class="thread-date">INCONNU</span>
+          <span class="thread-tag">CORRUPTED</span>
+          <span class="thread-date">NULL</span>
         </div>
 
-        <h2>instantané incohérent</h2>
+        <h2>Instantané incohérent</h2>
 
         <p>
-          données partiellement manquantes — reconstruction impossible
+          Données fragmentées — reconstruction impossible.
         </p>
 
       </div>
 
     </main>
 
-    <!-- BAS DE PAGE -->
-    <footer style="margin-top:60px; opacity:0.25; font-size:11px; text-align:center;">
-      ARCHIVE NODE SYSTEM // canal en lecture seule // aucune modération active
+    <!-- FOOTER -->
+    <footer class="forum-footer">
+      ARCHIVE NODE SYSTEM // READ-ONLY ENVIRONMENT // NO ACTIVE MODERATION
     </footer>
 
   </div>

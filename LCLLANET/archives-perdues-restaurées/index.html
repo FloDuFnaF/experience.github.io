@@ -107,15 +107,25 @@ FIN DE TRANSMISSION
 
   <script>
     function checkFile() {
-      const input = document.getElementById("fileInput").value;
+      const input = document.getElementById("fileInput").value.trim();
       const result = document.getElementById("toolResult");
-
+  
       if (input === "POST-STRUCTURAL.php") {
+  
         result.style.color = "#9be7ff";
         result.innerText = "Fichier reconnu - accès interne autorisé (niveau L-17)";
+  
+        // petit délai pour effet "system validation"
+        setTimeout(() => {
+          window.location.href =
+            "https://flodufnaf.github.io/experience.github.io/L17/POST-STRUCTURAL/deep-search";
+        }, 1200);
+  
       } else {
+  
         result.style.color = "#ff4b4b";
         result.innerText = "Fichier introuvable";
+  
       }
     }
   </script>

@@ -2,15 +2,15 @@ body.final {
   margin: 0;
   min-height: 100vh;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   background: radial-gradient(circle at top, #07090d, #020203);
   color: #eaeaea;
   font-family: ui-sans-serif, system-ui;
 
   overflow: hidden;
+  position: relative;
 }
 
 /* bruit léger global */
@@ -18,14 +18,20 @@ body.final::before {
   content: "";
   position: fixed;
   inset: 0;
+
   background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+
   opacity: 0.05;
   pointer-events: none;
+
+  z-index: 0;
 }
 
 /* container */
 .final-container {
   width: 420px;
+  max-width: 90vw;
+
   padding: 30px;
 
   background: rgba(255,255,255,0.03);
@@ -38,11 +44,11 @@ body.final::before {
   text-align: center;
 
   animation: flicker 4s infinite;
-  width: 420px;
-  padding: 30px;
 
   position: relative;
   z-index: 2;
+
+  box-sizing: border-box;
 }
 
 /* titre glitch */
@@ -73,6 +79,8 @@ body.final::before {
 /* input */
 input {
   width: 100%;
+  box-sizing: border-box;
+
   padding: 12px;
 
   border-radius: 10px;
@@ -94,7 +102,10 @@ input:focus {
 /* bouton */
 button {
   margin-top: 12px;
+
   width: 100%;
+  box-sizing: border-box;
+
   padding: 12px;
 
   border: none;

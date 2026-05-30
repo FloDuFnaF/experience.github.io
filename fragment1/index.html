@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>L-17 // INTRUSION</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fragment fragment-captcha">
+
+<div class="noise"></div>
+
+<div class="container">
+
+  <div class="card system-log fragment-card">
+
+    <h2>INTRUSION DÉTECTÉE</h2>
+
+    <p class="subtitle">
+      protocole de vérification actif — accès restreint
+    </p>
+
+    <p class="instruction">
+      Tape exactement la séquence demandée :
+    </p>
+
+    <p id="captchaText" class="cipher-text">
+      chargement...
+    </p>
+
+    <div class="input-block">
+      <input 
+        type="text" 
+        id="captchaInput" 
+        placeholder="clé de validation"
+        autocomplete="off"
+        onpaste="return false"
+        oncopy="return false"
+        oncut="return false"
+      />
+
+      <button onclick="validateCaptcha()">
+        VALIDER L’ACCÈS
+      </button>
+    </div>
+
+    <p id="timer" class="timer"></p>
+    <p id="error" class="error"></p>
+
+  </div>
+
+</div>
+
+<script src="fragment1.js"></script>
+
+</body>
+</html>

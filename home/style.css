@@ -94,13 +94,13 @@ header {
 
 .card {
   width: 100%;
-  min-height: 240px;
+  min-height: 280px;
 
   display: flex;
   flex-direction: column;
   gap: 18px;
 
-  padding: 24px;
+  padding: 28px;
   border-radius: 14px;
 
   background: rgba(255,255,255,0.03);
@@ -327,14 +327,21 @@ body.home .grid {
 
 .hidden-note {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 12px;
+  right: 16px;
 
   font-size: 11px;
-  opacity: 0.15;
+  opacity: 0.12;
 
-  max-width: 240px;
+  max-width: 260px;
   text-align: right;
 
   pointer-events: none;
+
+  user-select: none;
+}
+
+body.home {
+  min-height: 100vh;
+  overflow: hidden;
 }

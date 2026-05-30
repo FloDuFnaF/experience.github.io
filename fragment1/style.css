@@ -10,6 +10,10 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+
+  /* FIX IMPORTANT : évite écrasement vertical */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* sous-titre */
@@ -40,6 +44,9 @@
 
   opacity: 0.85;
   animation: flicker 3s infinite;
+
+  /* FIX IMPORTANT : empêche les sauts de layout */
+  word-break: break-word;
 }
 
 /* bloc input + button */
@@ -61,6 +68,9 @@
   color: white;
 
   outline: none;
+
+  /* FIX UX */
+  font-family: ui-monospace, monospace;
 }
 
 /* focus */
@@ -81,6 +91,10 @@
   color: white;
 
   transition: 0.2s;
+
+  /* FIX cohérence UI */
+  font-family: ui-monospace, monospace;
+  letter-spacing: 1px;
 }
 
 .fragment button:hover {
@@ -100,7 +114,7 @@
   opacity: 0.8;
 }
 
-/* flicker déjà existant compatible */
+/* flicker */
 @keyframes flicker {
   0%, 100% { opacity: 0.85; }
   50% { opacity: 0.6; }

@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <title>L-17 // INTRUSION</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body class="fragment fragment-captcha">
@@ -25,24 +27,29 @@
       Tape exactement la séquence demandée :
     </p>
 
+    <!-- CAPTCHA -->
     <p id="captchaText" class="cipher-text">
       chargement...
     </p>
 
     <div class="input-block">
-      <input 
-        type="text" 
-        id="captchaInput" 
+
+      <input
+        type="text"
+        id="captchaInput"
         placeholder="clé de validation"
         autocomplete="off"
+        spellcheck="false"
         onpaste="return false"
         oncopy="return false"
         oncut="return false"
       />
 
-      <button onclick="validateCaptcha()">
+      <!-- FIX IMPORTANT : bouton avec ID -->
+      <button id="validateBtn">
         VALIDER L’ACCÈS
       </button>
+
     </div>
 
     <p id="timer" class="timer"></p>

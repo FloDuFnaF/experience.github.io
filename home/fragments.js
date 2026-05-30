@@ -13,19 +13,17 @@ function checkPass(id) {
     error.innerText = "accès validé";
 
     setTimeout(() => {
-      if (id === 2) {
-        window.location.href = "https://flodufnaf.github.io/experience.github.io/PSFRAG2";
-      } else {
-        window.location.href = `https://flodufnaf.github.io/experience.github.io/PSFRAG2`;
-      }
-    }, 500);
 
-    setTimeout(() => {
-      if (id === 3) {
-        window.location.href = "https://flodufnaf.github.io/experience.github.io/SNFRAG3/home";
-      } else {
-        window.location.href = `https://flodufnaf.github.io/experience.github.io/SNFRAG3/home`;
+      if (id === 2) {
+        window.location.href =
+          "https://flodufnaf.github.io/experience.github.io/PSFRAG2/";
       }
+
+      else if (id === 3) {
+        window.location.href =
+          "https://flodufnaf.github.io/experience.github.io/SNFRAG3/home/";
+      }
+
     }, 500);
 
   } else {

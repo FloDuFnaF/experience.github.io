@@ -4,73 +4,64 @@ window.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("captchaInput");
   const error = document.getElementById("error");
   const timerEl = document.getElementById("timer");
+  const button = document.querySelector("button");
+
+  // 🧨 sécurité DOM (important)
+  if (!captchaText || !input || !error || !timerEl || !button) {
+    console.error("L17 ERROR: éléments DOM manquants");
+    return;
+  }
 
   const answer = "OBSERVEUR NON AUTORISE";
 
-  // ===== génération du texte (effet système) =====
-  const noiseVariants = [
-    "OBSERVEUR NON AUTORISE",
-    "OB5ERVEUR N0N AUT0RI5E",
-    "OBSERVEUR-NULL-AUTH",
-    "OBSERVEUR NON AUTORISE"
-  ];
+  // affichage captcha garanti
+  captchaText.textContent = answer;
 
-  captchaText.innerText =
-    noiseVariants[Math.floor(Math.random() * noiseVariants.length)];
-
-  // ===== anti triche (copie / collage) =====
+  // anti collage propre
   ["paste", "copy", "cut"].forEach(evt => {
-    input.addEventListener(evt, (e) => {
+    input.addEventListener(evt, e => {
       e.preventDefault();
-      error.innerText = "ACTION BLOQUÉE : INTÉGRITÉ REQUISE";
-      error.style.color = "#FF4C4C";
+      error.textContent = "ACTION BLOQUÉE";
     });
   });
 
-  // ===== timer système =====
+  // timer stable
   let time = 20;
 
   const interval = setInterval(() => {
+
+    timerEl.textContent = `verrouillage automatique dans ${time}s`;
+
     time--;
 
-    timerEl.innerText = `verrouillage automatique dans ${time}s`;
-
-    if (time <= 0) {
+    if (time < 0) {
       clearInterval(interval);
       input.disabled = true;
-      error.innerText = "SESSION EXPIRÉE — RECHARGEMENT REQUIS";
-      error.style.color = "#FF4C4C";
+      button.disabled = true;
+      error.textContent = "SESSION EXPIRÉE — RECHARGEMENT REQUIS";
     }
+
   }, 1000);
 
-  // ===== validation =====
-  window.validateCaptcha = function () {
+  // validation
+  button.addEventListener("click", () => {
 
     const value = input.value.trim().toUpperCase();
 
     if (value === answer) {
 
-      error.style.color = "#6CFF6C";
-      error.innerText = "ACCÈS AUTORISÉ";
-
+      error.textContent = "ACCÈS AUTORISÉ";
       input.disabled = true;
+      button.disabled = true;
 
       setTimeout(() => {
-        error.innerText = "DÉVERROUILLAGE DU NŒUD...";
-      }, 800);
-
-      setTimeout(() => {
-        error.innerText = "CONNEXION STABILISÉE";
-      }, 1600);
-
-      setTimeout(() => {
-        window.location.href = "fragment1-2.html"; // ou ton prochain node
-      }, 2500);
+        window.location.href = "fragment1-2.html";
+      }, 2000);
 
     } else {
-      error.style.color = "#FF4C4C";
-      error.innerText = "ÉCHEC DE VALIDATION";
+      error.textContent = "ÉCHEC DE VALIDATION";
     }
-  };
+
+  });
 
 });

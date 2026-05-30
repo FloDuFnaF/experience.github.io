@@ -16,7 +16,7 @@ function checkPass(id) {
       if (id === 2) {
         window.location.href = "https://flodufnaf.github.io/experience.github.io/PSFRAG2";
       } else {
-        window.location.href = `fragment${id}.html`;
+        window.location.href = `https://flodufnaf.github.io/experience.github.io/PSFRAG2`;
       }
     }, 500);
 
@@ -24,7 +24,7 @@ function checkPass(id) {
       if (id === 3) {
         window.location.href = "https://flodufnaf.github.io/experience.github.io/SNFRAG3/home";
       } else {
-        window.location.href = `fragment${id}.html`;
+        window.location.href = `https://flodufnaf.github.io/experience.github.io/SNFRAG3/home`;
       }
     }, 500);
 

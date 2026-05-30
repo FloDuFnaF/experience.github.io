@@ -10,7 +10,6 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  background: radial-gradient(circle at top, #07090d, #020203);
   color: #eaeaea;
   overflow-x: hidden;
 }
@@ -356,4 +355,14 @@ body.home {
 
 .login-btn {
   z-index: 20;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(circle at top, #07090d, #020203);
+
+  z-index: -10;
 }

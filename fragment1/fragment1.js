@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
       clearInterval(interval); // 🔥 IMPORTANT FIX
 
       setTimeout(() => {
-        window.location.href = "fragment1-2.html";
+        window.location.href = "fragment1-2";
       }, 2000);
 
     } else {

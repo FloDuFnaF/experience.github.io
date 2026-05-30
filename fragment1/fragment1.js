@@ -4,9 +4,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById("captchaInput");
   const error = document.getElementById("error");
   const timerEl = document.getElementById("timer");
-  const button = document.querySelector("button");
+  const button = document.getElementById("validateBtn");
 
-  // 🧨 sécurité DOM (important)
+  // sécurité DOM
   if (!captchaText || !input || !error || !timerEl || !button) {
     console.error("L17 ERROR: éléments DOM manquants");
     return;
@@ -14,10 +14,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const answer = "OBSERVEUR NON AUTORISE";
 
-  // affichage captcha garanti
+  // affichage captcha
   captchaText.textContent = answer;
 
-  // anti collage propre
+  // anti-collage propre
   ["paste", "copy", "cut"].forEach(evt => {
     input.addEventListener(evt, e => {
       e.preventDefault();
@@ -25,8 +25,8 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // timer stable
-  let time = 20;
+  // 🔥 TIMER CORRIGÉ (10s comme tu voulais)
+  let time = 10;
 
   const interval = setInterval(() => {
 
@@ -51,8 +51,11 @@ window.addEventListener("DOMContentLoaded", () => {
     if (value === answer) {
 
       error.textContent = "ACCÈS AUTORISÉ";
+
       input.disabled = true;
       button.disabled = true;
+
+      clearInterval(interval); // 🔥 IMPORTANT FIX
 
       setTimeout(() => {
         window.location.href = "fragment1-2.html";

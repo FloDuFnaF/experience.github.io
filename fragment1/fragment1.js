@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
       clearInterval(interval); // 🔥 IMPORTANT FIX
 
       setTimeout(() => {
-        window.location.href = "fragment1-2";
+        window.location.href = "https://flodufnaf.github.io/experience.github.io/fragment1-2";
       }, 2000);
 
     } else {

@@ -215,3 +215,43 @@ button:hover {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.6; }
 }
+
+/* FIX GRID HOME */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* TYPO SYSTEM STYLE */
+body {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* CARDS PLUS STABLES */
+.card {
+  min-height: 220px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* HEADER SYSTEM */
+.system-overlay {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 11px;
+  opacity: 0.4;
+
+  pointer-events: none;
+}

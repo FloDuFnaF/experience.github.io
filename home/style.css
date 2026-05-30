@@ -297,3 +297,44 @@ body.home .grid {
 .system-overlay {
   z-index: 999;
 }
+
+.login-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  padding: 10px 14px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+
+  color: #eaeaea;
+  text-decoration: none;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(10px);
+
+  transition: 0.2s;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.25);
+}
+
+.hidden-note {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  font-size: 11px;
+  opacity: 0.15;
+
+  max-width: 240px;
+  text-align: right;
+
+  pointer-events: none;
+}
